@@ -32,7 +32,7 @@ const Footer = () => {
           <img src={logo} className="w-32 mb-4" />
 
           <p className="text-sm  align-justify leading-6 text-gray-300">
-            Powering a sustainable future with innovative solar solutions. Join
+           github pushing Powering a sustainable future with innovative solar solutions. Join
             us in making the world greener, one panel at a time! Trusted by 500+
             clients across residential, commercial & industrial projects.
           </p>
