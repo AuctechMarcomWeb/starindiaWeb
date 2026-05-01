@@ -15,7 +15,7 @@ const services = [
     id: 1,
     title: "On-Grid Solar",
     desc: "Reduce electricity bills by exporting surplus energy to the grid.",
-    image: img1,
+    image: img3,
     link: "/services/on-grid",
   },
   {
@@ -43,7 +43,7 @@ const services = [
     id: 5,
     title: "Aata Chakki",
     desc: "Efficient solar-powered irrigation for agriculture.",
-    image: img5,
+    image: img1,
     link: "/services/aata-chakki",
   },
 ];

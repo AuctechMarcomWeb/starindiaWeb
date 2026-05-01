@@ -39,7 +39,32 @@ export default function SolarBenefits() {
         </div>
       </div>
 
-      {/* BENEFITS LIST */}
+      <div className="mt-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+  {[
+    "Affordable Electricity",
+    "Increase Property Value",
+    "Improved Energy Security",
+    "Predictable Budgeting",
+    "Government Subsidies",
+    "Sell Power to Grid",
+    "Higher Property Resale Value",
+    "Low Maintenance Cost",
+  ].map((item, i) => (
+    <div
+      key={i}
+      className="flex items-center gap-3 bg-white p-3 rounded-xl"
+    >
+      <div className="w-6 h-6 flex items-center justify-center rounded-full bg-[#008235] text-white text-xs">
+        ✓
+      </div>
+      <p className="text-xs sm:text-sm font-medium text-gray-800">
+        {item}
+      </p>
+    </div>
+  ))}
+</div>
+
+      {/* BENEFITS LIST
       <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
         {[
           "Affordable Electricity",
@@ -61,7 +86,7 @@ export default function SolarBenefits() {
             <p className="text-sm font-medium text-gray-800">{item}</p>
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* COUNTER SECTION */}
       {/* <div className=" bg-gray-100 rounded-2xl p-8 md:p-10">

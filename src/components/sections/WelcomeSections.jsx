@@ -56,7 +56,7 @@ const WelcomeSections = () => {
           </p>
 
           {/* LIST */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               ["Save Electricity Bills", 0],
               ["Eco-Friendly Energy", 100],
@@ -72,14 +72,42 @@ const WelcomeSections = () => {
                 visible={true} // 👈 yahan tum animation control kar sakte ho
               />
             ))}
-          </div>
+          </div> */}
 
           {/* BUTTON */}
-          <div className="flex flex-wrap items-center gap-4">
+          {/* <div className="flex flex-wrap items-center gap-4">
             <button className="bg-[#008235] hover:bg-[#e5792b] text-white px-6 py-3 rounded-md font-semibold transition-all duration-200 shadow-md hover:shadow-xl">
               Explore More
             </button>
-          </div>
+          </div> */}
+
+
+
+          {/* FEATURES */}
+<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-2 gap-3 sm:gap-4">
+  {[
+    ["Save Electricity Bills", 0],
+    ["Eco-Friendly Energy", 100],
+    ["Government Subsidy Support", 200],
+    ["High Efficiency Panels", 300],
+    ["Fast Installation", 400],
+    ["24x7 Customer Support", 500],
+  ].map(([text, delay]) => (
+    <Feature
+      key={text}
+      text={text}
+      delay={delay}
+      visible={true}
+    />
+  ))}
+</div>
+
+{/* BUTTON */}
+<div className="flex flex-wrap items-center justify-center sm:justify-start mt-4">
+  <button className="bg-[#008235] hover:bg-[#e5792b] text-white px-6 py-3 rounded-md font-semibold transition-all duration-200 shadow-md hover:shadow-xl">
+    Explore More
+  </button>
+</div>
         </div>
 
         {/* RIGHT IMAGE (Slide from RIGHT) */}
