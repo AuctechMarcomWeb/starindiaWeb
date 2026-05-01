@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, CheckCircle, Send } from "lucide-react";
 
@@ -80,7 +82,7 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* ✅ Equal Layout Grid */}
+        {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-stretch">
           {/* LEFT */}
           <div className="flex flex-col h-full gap-4">
@@ -93,28 +95,39 @@ const Contact = () => {
               />
             </div>
 
-            {/* 3 Info Cards */}
+            {/* Contact Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {[
                 {
                   icon: <Phone className="w-5 h-5 text-[#008235]" />,
                   label: "Call Us",
                   value: "+91 9876543210",
+                  link: "tel:+919876543210",
                 },
                 {
                   icon: <Mail className="w-5 h-5 text-[#008235]" />,
                   label: "Email",
                   value: "info@starindiaenergy.com",
+                  link: "mailto:info@starindiaenergy.com",
                 },
                 {
                   icon: <MapPin className="w-5 h-5 text-[#008235]" />,
                   label: "Location",
-                  value: "Lucknow, UP",
+                  value:
+                    "D-222 UGF Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010",
+                  link:
+                    "https://www.google.com/maps?q=D-222+UGF+Vibhuti+Khand+Gomti+Nagar+Lucknow",
                 },
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition flex flex-col justify-center items-center text-center h-full"
+                  onClick={() =>
+                    window.open(
+                      item.link,
+                      item.label === "Location" ? "_blank" : "_self"
+                    )
+                  }
+                  className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition flex flex-col justify-center items-center text-center h-full cursor-pointer"
                 >
                   <div className="mb-2">{item.icon}</div>
                   <p className="text-xs text-gray-500">{item.label}</p>
@@ -126,11 +139,9 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* RIGHT FORM */}
-          {/* RIGHT FORM */}
+          {/* RIGHT FORM (UNCHANGED) */}
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8 h-full flex flex-col">
             {submitted ? (
-              /* ✅ Success UI (same premium style) */
               <div className="flex flex-col items-center justify-center h-full min-h-[420px] text-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center">
                   <CheckCircle className="w-8 h-8 text-green-500" />
@@ -162,7 +173,6 @@ const Contact = () => {
               </div>
             ) : (
               <>
-                {/* Heading */}
                 <h3 className="text-xl font-bold text-gray-800 mb-1">
                   Request Solar Consultation
                 </h3>
@@ -172,7 +182,6 @@ const Contact = () => {
                   the best solution for your needs.
                 </p>
 
-                {/* Form */}
                 <form
                   onSubmit={handleSubmit}
                   className="flex flex-col gap-4 flex-1"
