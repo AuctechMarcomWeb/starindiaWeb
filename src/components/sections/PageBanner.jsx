@@ -24,6 +24,21 @@ const routes = [
 /* ── Keyframes injected once into <head> ── */
 const STYLE_ID = "pb-keyframes";
 const css = `
+@keyframes pb-slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.pb-title {
+  opacity: 0;
+  animation: pb-slideDown 0.6s ease-out 0.2s forwards;
+}
+
   @keyframes pb-slideIn {
     0%   { opacity: 0; transform: translateX(-55px); }
     100% { opacity: 1; transform: translateX(0); }
@@ -100,7 +115,15 @@ const PageBanner = ({ bgImage = defaultBg }) => {
     injectStyles();
   }, []);
 
- const currentRoute = routes.find((r) => location.pathname.startsWith(r.path));
+//  const currentRoute = routes.find((r) => location.pathname.startsWith(r.path));
+
+const currentRoute = routes.find((r) => {
+  if (r.path === "/blog/") {
+    return location.pathname.startsWith("/blog/");
+  }
+  return location.pathname === r.path;
+});
+
 
  const title = currentRoute?.name ?? "Page";
 
@@ -156,7 +179,7 @@ const finalBg = bgImage || defaultBg;
           {/* Title */}
           <h2
             key={`title-${location.pathname}`}
-            className="pb-title pb-title-shimmer text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3"
+            className="pb-title text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3"
           >
             {title}
           </h2>
@@ -171,18 +194,16 @@ const finalBg = bgImage || defaultBg;
           {/* Breadcrumb */}
           <nav
             key={`bc-${location.pathname}`}
-            className="pb-breadcrumb flex items-center sm:text-base font-medium tracking-wide"
+            className="pb-breadcrumb mt-3 px-4 py-2 rounded-full bg-[#e5792b] flex items-center gap-2 text-sm sm:text-base font-medium"
             aria-label="breadcrumb"
           >
-            <Link
-              to="/"
-              className="text-white/70 hover:text-[#e5792b] transition-colors duration-200"
-            >
+            <Link to="/" className="text-white hover:underline">
               Home
             </Link>
 
-            <span className="mx-2 text-white/40 text-[10px]">›</span>
-            <span className="font-semibold text-[#e5792b]">{title}</span>
+            <span className="text-white">›</span>
+
+            <span className="text-[#008235] font-semibold">{title}</span>
           </nav>
         </>
       </div>
