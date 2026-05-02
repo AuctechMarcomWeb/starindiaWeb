@@ -1,8 +1,4 @@
 
-
-
-
-
 import React, { useEffect } from "react";
 import logo from "../../assets/logo.png";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";

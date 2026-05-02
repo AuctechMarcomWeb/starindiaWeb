@@ -350,7 +350,7 @@ export default function ProfessionalAboutPage() {
       </section> */}
 
       {/* ─── Professional Statistics ─── */}
-      <section className="bg-slate-900 py-10 mt-6 md:-mt-10 rounded-2xl ">
+      <section className="bg-slate-900 py-10 mt-6 md:-mt-10  ">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
           {[
             { label: "Happy Clients", val: "500+" },
