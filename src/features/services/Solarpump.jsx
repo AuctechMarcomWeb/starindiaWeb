@@ -139,7 +139,10 @@ const Solarpump = () => {
             className="w-full lg:w-1/2 flex flex-col justify-between h-full"
           >
             <div>
-              <SectionTag>Solar Pump Solution</SectionTag>
+              {/* <SectionTag>Solar Pump Solution</SectionTag> */}
+              <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Solar Pump Solution
+          </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-4">
                 Reliable Water Pumping with{" "}
                 <span className="text-[#008235]">Solar Energy</span>
@@ -228,7 +231,10 @@ const Solarpump = () => {
               className="flex flex-col justify-between h-full order-1 lg:order-2"
             >
               <div>
-                <SectionTag>Key Benefits</SectionTag>
+                {/* <SectionTag>Key Benefits</SectionTag> */}
+                <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Key Benefits
+          </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   Why Choose an{" "}
                   <span className="text-[#008235]">a Solar Pump System?</span>
@@ -269,7 +275,10 @@ const Solarpump = () => {
         <div className="relative z-10 w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8">
           <FadeIn direction="up">
             <div className="text-center mb-10 md:mb-14">
-              <SectionTag>Our Process</SectionTag>
+              {/* <SectionTag>Our Process</SectionTag> */}
+              <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Our Process
+          </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
                 How We Deliver Your Solar Pump Solution
               </h2>
@@ -316,7 +325,11 @@ const Solarpump = () => {
               className="flex flex-col justify-between h-full"
             >
               <div>
-                <SectionTag>Challenges & Limitations</SectionTag>
+                {/* <SectionTag>Challenges & Limitations</SectionTag> */}
+
+                <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Challenges & Limitations
+          </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                   Things to Know Before{" "}
                   <span className="text-[#e5792b]">
@@ -366,7 +379,10 @@ const Solarpump = () => {
         <div className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8">
           <FadeIn direction="up">
             <div className="text-center mb-10 md:mb-14">
-              <SectionTag>What We Offer</SectionTag>
+              {/* <SectionTag>What We Offer</SectionTag> */}
+              <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            What We Offer
+          </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Complete Atta Chakki Packages
               </h2>

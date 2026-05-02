@@ -30,7 +30,7 @@ import serviceSolImg1 from "../../assets/images/service-solutions/service-soluti
 import serviceSolImg2 from "../../assets/images/service-solutions/service-solutions-img2.png";
 import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
 import serviceSolImg4 from "../../assets/images/service-solutions/service-solutions-img4.png";
-
+import ongrid from "../../assets/images/solar-benefits/ongrid.jpg"
 // ── Static Data ──
 const benefits = [
   { icon: <DollarSign className="w-6 h-6" />, title: "Zero Electricity Bills", desc: "Export surplus power to the grid and earn credits — drastically cut or eliminate your monthly electricity bill." },
@@ -88,8 +88,10 @@ const Ongrid = () => {
             className="w-full lg:w-1/2 flex flex-col justify-between h-full"
           >
             <div>
-              <SectionTag>What Is On-Grid Solar?</SectionTag>
-
+              {/* <SectionTag>What Is On-Grid Solar?</SectionTag> */}
+<span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            About Star India Energy
+          </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-4">
                 Grid-Connected Solar Power for{" "}
                 <span className="text-[#008235]">Homes & Businesses</span>
@@ -174,7 +176,7 @@ const Ongrid = () => {
             {/* LEFT IMAGE */}
             <FadeIn direction="left" className="h-full order-2 lg:order-1">
               <img
-                src={solarBenefits}
+                src={ongrid}
                 alt="Solar benefits"
                 className="rounded-2xl w-full h-full object-cover min-h-[260px] sm:min-h-[320px]"
               />
@@ -187,7 +189,9 @@ const Ongrid = () => {
               className="flex flex-col justify-between h-full order-1 lg:order-2"
             >
               <div>
-                <SectionTag>Key Benefits</SectionTag>
+                {/* <SectionTag>Key Benefits</SectionTag> */}
+                <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Key Benefits          </span>
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   Why Choose an{" "}
@@ -232,7 +236,10 @@ const Ongrid = () => {
         <div className="relative z-10 w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8">
           <FadeIn direction="up">
             <div className="text-center mb-10 md:mb-14">
-              <SectionTag>Our Process</SectionTag>
+              {/* <SectionTag>Our Process</SectionTag> */}
+              <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Our Process
+          </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
                 How We Deliver Your On-Grid Solution
               </h2>
@@ -280,7 +287,10 @@ const Ongrid = () => {
               className="flex flex-col justify-between h-full"
             >
               <div>
-                <SectionTag>Challenges & Limitations</SectionTag>
+                {/* <SectionTag>Challenges & Limitations</SectionTag> */}
+                <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Challenges & Limitations
+          </span>
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                   Things to Know Before You{" "}
@@ -334,7 +344,10 @@ const Ongrid = () => {
         <div className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8">
           <FadeIn direction="up">
             <div className="text-center mb-10 md:mb-14">
-              <SectionTag>What We Offer</SectionTag>
+              {/* <SectionTag>What We Offer</SectionTag> */}
+              <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            What We Offer
+          </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Complete On-Grid Solar Packages
               </h2>

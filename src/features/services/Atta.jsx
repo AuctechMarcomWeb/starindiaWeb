@@ -32,6 +32,7 @@ import offerIcon2 from "../../assets/images/single-service/offer-icon2.svg";
 import offerIcon3 from "../../assets/images/single-service/offer-icon3.svg";
 import trueIcon from "../../assets/images/single-service/true-icon.svg";
 import solarBenefits from "../../assets/images/solar-benefits/solar-benefits-img.png";
+import solaratta from "../../assets/images/solar-benefits/solaratta.png"
 import whyChooseImg from "../../assets/images/why-choose-us/why-choose-us-img.png";
 import serviceSolBg from "../../assets/images/service-solutions/service-solutions-bg.png";
 import serviceSolImg1 from "../../assets/images/service-solutions/service-solutions-img1.png";
@@ -139,7 +140,10 @@ const Atta = () => {
             className="w-full lg:w-1/2 flex flex-col justify-between h-full"
           >
             <div>
-              <SectionTag>Atta Chakki Solution</SectionTag>
+              {/* <SectionTag>Atta Chakki Solution</SectionTag> */}
+              <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Atta Chakki Solution
+          </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-4">
                 Smart Power Solution for{" "}
                 <span className="text-[#008235]">
@@ -218,7 +222,7 @@ const Atta = () => {
             {/* LEFT IMAGE */}
             <FadeIn direction="left" className="h-full order-2 lg:order-1">
               <img
-                src={solarBenefits}
+                src={solaratta}
                 alt="Off-Grid solar benefits"
                 className="rounded-2xl w-full h-full object-cover min-h-[260px] sm:min-h-[320px]"
               />
@@ -230,7 +234,10 @@ const Atta = () => {
               className="flex flex-col justify-between h-full order-1 lg:order-2"
             >
               <div>
-                <SectionTag>Key Benefits</SectionTag>
+                {/* <SectionTag>Key Benefits</SectionTag> */}
+                <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Key Benefits
+          </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   Why Choose an{" "}
                   <span className="text-[#008235]">Atta Chakki Solar?</span>
@@ -271,7 +278,10 @@ const Atta = () => {
         <div className="relative z-10 w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8">
           <FadeIn direction="up">
             <div className="text-center mb-10 md:mb-14">
-              <SectionTag>Our Process</SectionTag>
+              {/* <SectionTag>Our Process</SectionTag> */}
+              <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Our Process
+          </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
                 How We Deliver Your Atta chakki Solar Solution
               </h2>
@@ -318,7 +328,10 @@ const Atta = () => {
               className="flex flex-col justify-between h-full"
             >
               <div>
-                <SectionTag>Challenges & Limitations</SectionTag>
+                {/* <SectionTag>Challenges & Limitations</SectionTag> */}
+                <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            Challenges & Limitations
+          </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                   Things to Know Before You{" "}
                   <span className="text-[#e5792b]">Go Atta Chakki</span>
@@ -366,7 +379,10 @@ const Atta = () => {
         <div className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8">
           <FadeIn direction="up">
             <div className="text-center mb-10 md:mb-14">
-              <SectionTag>What We Offer</SectionTag>
+              {/* <SectionTag>What We Offer</SectionTag> */}
+              <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+            What We Offer
+          </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Complete Atta Chakki Packages
               </h2>
