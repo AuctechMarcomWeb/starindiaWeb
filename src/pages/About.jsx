@@ -104,7 +104,7 @@ export default function ProfessionalAboutPage() {
       <PageBanner />
 
       {/* Welcome & specialized Services Section - Star India Energy Solution */}
-      <div className="container w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-12 md:py-24">
+      <div className="container w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-12 md:py-24 -mt-10 -mb-38">
         <section className="animate-fadeIn">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
             {/* LEFT CONTENT: Professional Introduction */}
@@ -194,14 +194,15 @@ export default function ProfessionalAboutPage() {
             </div>
 
             {/* RIGHT CONTENT: High-Impact Visuals */}
-            <div className="relative w-full h-[500px] md:h-[600px] order-1 lg:order-2 flex items-center justify-center">
+            <div className="relative w-full order-1 lg:order-2 flex flex-col items-center justify-center gap-2">
               {/* Abstract Glow Effect */}
               <div className="absolute w-[85%] h-[85%] bg-[#008235]/10 rounded-full blur-[80px]"></div>
 
               {/* Primary Image: Modern Solar Array */}
-              <div className="absolute top-0 right-0 w-[80%] h-[75%] rounded-[45px] overflow-hidden shadow-2xl z-20 border-8 border-white group">
+              {/* <div className="absolute top-0 right-0 w-[80%] h-[75%] rounded-[45px] overflow-hidden shadow-2xl z-20 border-8 border-white group"> */}
+              <div className="relative w-full h-[200px] lg:h-[400px] rounded-[35px] overflow-hidden shadow-2xl z-30 border-8 border-white group mt-4">
                 <img
-                  src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800"
+                  src="https://plus.unsplash.com/premium_photo-1679607691186-4550451e13b7?q=80&w=415&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   alt="Star India Modern Solar Array"
                 />
@@ -209,9 +210,10 @@ export default function ProfessionalAboutPage() {
               </div>
 
               {/* Secondary Image: Technical Excellence */}
-              <div className="absolute bottom-4 left-0 w-[65%] h-[55%] rounded-[35px] overflow-hidden shadow-2xl z-30 border-8 border-white group">
+              {/* <div className="absolute bottom-4 left-0 w-[65%] h-[55%] rounded-[35px] overflow-hidden shadow-2xl z-30 border-8 border-white group"> */}
+              <div className="relative w-full h-[200px] lg:h-[400px] rounded-[35px] overflow-hidden shadow-2xl z-30 border-8 border-white group mt-4">
                 <img
-                  src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800"
+                  src="https://plus.unsplash.com/premium_photo-1682148205811-e8a8ce759f4b?q=80&w=653&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   alt="Expert Technical Installation"
                 />
@@ -348,7 +350,7 @@ export default function ProfessionalAboutPage() {
       </section> */}
 
       {/* ─── Professional Statistics ─── */}
-      <section className="bg-slate-900 py-16">
+      <section className="bg-slate-900 py-10 mt-6 md:-mt-10  ">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
           {[
             { label: "Happy Clients", val: "500+" },
@@ -369,11 +371,11 @@ export default function ProfessionalAboutPage() {
       </section>
 
       {/* ─── Mission Section ─── */}
-      <section className=" overflow-hidden bg-white">
-        <div className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-12 md:py-24 grid md:grid-cols-2 gap-16 items-center">
+      <section className=" overflow-hidden bg-white  ">
+        <div className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-12 md:py-24 grid md:grid-cols-2 gap-16 items-center -mt-10 ">
           {/* LEFT IMAGE */}
           <FadeIn direction="left">
-            <div className="relative">
+            <div className="relative ">
               {/* IMAGE */}
               <img
                 src={IMGS.mission}
@@ -381,8 +383,8 @@ export default function ProfessionalAboutPage() {
               />
 
               {/* BADGE FIX */}
-              <div className="absolute -bottom-8 -right-8 bg-orange-600 text-white p-8 rounded-3xl shadow-xl hidden lg:block z-20">
-                <div className="text-3xl font-black">Clean Energy</div>
+              <div className="absolute -bottom-8 -right-8 bg-orange-600 text-white p-4 rounded-3xl shadow-xl hidden lg:block z-20">
+                <div className="text-2xl font-black">Clean Energy</div>
                 <div className="text-orange-100 text-sm">For Every Home</div>
               </div>
 
@@ -393,7 +395,7 @@ export default function ProfessionalAboutPage() {
 
           {/* RIGHT CONTENT */}
           <FadeIn direction="right">
-            <span className="text-orange-600 font-bold uppercase tracking-widest text-sm inline-block mb-4">
+            <span className="text-orange-600 font-bold uppercase tracking-widest text-sm inline-block mb-4 ">
               Our Mission
             </span>
 
@@ -431,7 +433,7 @@ export default function ProfessionalAboutPage() {
       </section>
 
       {/* ─── Vision Section ─── */}
-      <section className="overflow-hidden bg-slate-50">
+      <section className="overflow-hidden bg-slate-50 -mt-25">
         <div className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-12 md:py-24 grid md:grid-cols-2 gap-16 items-center">
           {/* LEFT CONTENT */}
           <FadeIn direction="left">
@@ -478,8 +480,8 @@ export default function ProfessionalAboutPage() {
                 className="rounded-3xl shadow-2xl"
               />
 
-              <div className="absolute -top-8 -left-8 bg-green-600 text-white p-8 rounded-3xl shadow-xl hidden lg:block">
-                <div className="text-3xl font-black">Future Ready</div>
+              <div className="absolute -top-8 -left-8 bg-green-600 text-white p-4 rounded-3xl shadow-xl hidden lg:block">
+                <div className="text-2xl font-black">Future Ready</div>
                 <div className="text-green-100 text-sm">Solar Innovation</div>
               </div>
             </div>
@@ -488,15 +490,15 @@ export default function ProfessionalAboutPage() {
       </section>
 
       {/* ─── Quality Section ─── */}
-      <section className=" overflow-hidden bg-white">
+      <section className=" overflow-hidden bg-white -mt-35 -mb-10">
         <div className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-12 md:py-24 grid md:grid-cols-2 gap-16 items-center">
           {/* LEFT IMAGE */}
           <FadeIn direction="left">
             <div className="relative">
               <img src={IMGS.welcome} className="rounded-3xl shadow-2xl" />
 
-              <div className="absolute -bottom-8 -right-8 bg-blue-600 text-white p-8 rounded-3xl shadow-xl hidden lg:block">
-                <div className="text-3xl font-black">Tier-1</div>
+              <div className="absolute -bottom-8 -right-8 bg-blue-600 text-white p-4 rounded-3xl shadow-xl hidden lg:block">
+                <div className="text-2xl font-black">Tier-1</div>
                 <div className="text-blue-100 text-sm">Solar Components</div>
               </div>
             </div>
@@ -569,3 +571,341 @@ export default function ProfessionalAboutPage() {
     </div>
   );
 }
+
+
+// import { useEffect, useRef, useState } from "react";
+// import {
+//   CheckCircle,
+//   Sun,
+//   Zap,
+//   Leaf,
+//   Award,
+//   Users,
+//   Globe,
+//   ArrowRight,
+//   Shield,
+//   TrendingUp,
+//   Star,
+//   Phone,
+//   Mail,
+//   Settings,
+//   Droplets,
+//   Wind,
+//   Battery,
+// } from "lucide-react";
+// import PageBanner from "../components/sections/PageBanner";
+// import FreeInstallation from "../components/sections/FreeInstallation";
+
+// /* ─────────── useInView Hook ─────────── */
+// const useInView = (threshold = 0.1) => {
+//   const ref = useRef(null);
+//   const [inView, setInView] = useState(false);
+//   useEffect(() => {
+//     const obs = new IntersectionObserver(
+//       ([e]) => {
+//         if (e.isIntersecting) {
+//           setInView(true);
+//           obs.disconnect();
+//         }
+//       },
+//       { threshold },
+//     );
+//     if (ref.current) obs.observe(ref.current);
+//     return () => obs.disconnect();
+//   }, [threshold]);
+//   return [ref, inView];
+// };
+
+// /* ─────────── FadeIn Component ─────────── */
+// const FadeIn = ({ children, delay = 0, direction = "up", style = {} }) => {
+//   const [ref, inView] = useInView();
+//   const dirs = {
+//     up: "translateY(40px)",
+//     down: "translateY(-40px)",
+//     left: "translateX(-40px)",
+//     right: "translateX(40px)",
+//   };
+//   return (
+//     <div
+//       ref={ref}
+//       style={{
+//         opacity: inView ? 1 : 0,
+//         transform: inView ? "none" : dirs[direction],
+//         transition: `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${delay}ms`,
+//         ...style,
+//       }}
+//     >
+//       {children}
+//     </div>
+//   );
+// };
+
+// const IMGS = {
+//   mission:
+//     "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80",
+//   welcome:
+//     "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+// };
+
+// export default function ProfessionalAboutPage() {
+//   return (
+//     <div className="bg-white text-slate-800">
+//       <PageBanner />
+
+//       {/* SECTION */}
+//       <div className="container w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-10 md:py-16">
+//         <section>
+//           <div className="grid lg:grid-cols-2 gap-10 items-center">
+            
+//             {/* LEFT CONTENT */}
+//             <div className="order-2 lg:order-1">
+//               <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+//                 Reliable <span className="text-[#e5792b]">Solar</span> Solutions
+//               </h2>
+//               <p className="text-gray-600">
+//                 Star India Energy Solution provides high-quality solar solutions
+//                 for homes and industries.
+//               </p>
+//             </div>
+
+//             {/* RIGHT IMAGES (UPDATED) */}
+//             <div className="w-full order-1 lg:order-2 flex flex-col items-center gap-6">
+              
+//               {/* IMAGE 1 */}
+//               <div className="relative w-full max-w-[500px] aspect-square rounded-[35px] overflow-hidden shadow-2xl border-8 border-white group">
+//                 <img
+//                   src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800"
+//                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+//                 />
+//               </div>
+
+//               {/* IMAGE 2 */}
+//               <div className="relative w-full max-w-[500px] aspect-square rounded-[35px] overflow-hidden shadow-2xl border-8 border-white group">
+//                 <img
+//                   src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800"
+//                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+//                 />
+
+//                 {/* BADGE */}
+//                 <div className="absolute top-4 right-4 bg-[#008235] text-white py-2 px-4 rounded-full flex items-center gap-2">
+//                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+//                   <p className="text-[10px] font-black uppercase">
+//                     Certified Installer
+//                   </p>
+//                 </div>
+//               </div>
+
+//             </div>
+//           </div>
+//         </section>
+//       </div>
+
+//       {/* STATS */}
+//       <section className="bg-slate-900 py-12">
+//         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+//           {[
+//             { label: "Happy Clients", val: "500+" },
+//             { label: "Projects Completed", val: "1200+" },
+//             { label: "Years Experience", val: "10+" },
+//             { label: "States Covered", val: "12+" },
+//           ].map((stat, i) => (
+//             <FadeIn key={i}>
+//               <div className="text-orange-500 text-3xl font-black">
+//                 {stat.val}
+//               </div>
+//               <div className="text-slate-400 text-xs">{stat.label}</div>
+//             </FadeIn>
+//           ))}
+//         </div>
+//       </section>
+
+//       <FreeInstallation />
+//     </div>
+//   );
+// }
+
+
+// import { useEffect, useRef, useState } from "react";
+// import {
+//   CheckCircle,
+// } from "lucide-react";
+// import PageBanner from "../components/sections/PageBanner";
+// import FreeInstallation from "../components/sections/FreeInstallation";
+
+// /* ─────────── useInView Hook ─────────── */
+// const useInView = (threshold = 0.1) => {
+//   const ref = useRef(null);
+//   const [inView, setInView] = useState(false);
+//   useEffect(() => {
+//     const obs = new IntersectionObserver(
+//       ([e]) => {
+//         if (e.isIntersecting) {
+//           setInView(true);
+//           obs.disconnect();
+//         }
+//       },
+//       { threshold }
+//     );
+//     if (ref.current) obs.observe(ref.current);
+//     return () => obs.disconnect();
+//   }, [threshold]);
+//   return [ref, inView];
+// };
+
+// /* ─────────── FadeIn Component ─────────── */
+// const FadeIn = ({ children, delay = 0, direction = "up", style = {} }) => {
+//   const [ref, inView] = useInView();
+//   const dirs = {
+//     up: "translateY(40px)",
+//     down: "translateY(-40px)",
+//     left: "translateX(-40px)",
+//     right: "translateX(40px)",
+//   };
+//   return (
+//     <div
+//       ref={ref}
+//       style={{
+//         opacity: inView ? 1 : 0,
+//         transform: inView ? "none" : dirs[direction],
+//         transition: `all 0.8s ease ${delay}ms`,
+//         ...style,
+//       }}
+//     >
+//       {children}
+//     </div>
+//   );
+// };
+
+// const IMGS = {
+//   mission:
+//     "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80",
+//   welcome:
+//     "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+// };
+
+// export default function ProfessionalAboutPage() {
+//   return (
+//     <div className="bg-white text-slate-800">
+
+//       <PageBanner />
+
+//       {/* MAIN SECTION */}
+//       <div className="container w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-10  md:py-16">
+//         <section>
+//           <div className="grid lg:grid-cols-2 gap-10 items-center -mt-8">
+
+//             {/* LEFT CONTENT */}
+//             <div className="order-2 lg:order-1">
+              
+//               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+//                 Reliable <span className="text-[#e5792b]">Solar</span> Solutions
+//                 for <span className="text-[#008235]">Generations</span>
+//               </h2>
+
+//               <p className="text-gray-600 text-lg leading-relaxed mb-6">
+//                 Star India Energy Solution stands as a trusted name in solar energy,
+//                 delivering sustainable and cost-effective solutions for homes,
+//                 industries, and agriculture.
+//               </p>
+
+//               <p className="text-gray-600 text-lg leading-relaxed">
+//                 With 500+ installations and strong government support, we help you
+//                 achieve energy independence while reducing electricity bills.
+//               </p>
+
+//             </div>
+
+//             {/* RIGHT IMAGES (FIXED) */}
+//             <div className="w-full order-1 lg:order-2 flex flex-col items-center gap-4">
+
+//               {/* IMAGE 1 */}
+//               <div className="relative w-full max-w-[420px] aspect-square rounded-[30px] h-80 overflow-hidden shadow-xl border-8 border-white group">
+//                 <img
+//                   src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800"
+//                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+//                   alt=""
+//                 />
+//               </div>
+
+//               {/* IMAGE 2 */}
+//               <div className="relative w-full max-w-[420px] aspect-square rounded-[30px] overflow-hidden shadow-xl border-8 border-white h-80 group">
+
+//                 <img
+//                   src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800"
+//                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+//                   alt=""
+//                 />
+
+//                 {/* BADGE */}
+//                 <div className="absolute top-3 right-3 bg-[#008235] text-white px-3 py-1 rounded-full flex items-center gap-2 shadow-md">
+//                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+//                   <span className="text-[10px] font-bold uppercase">
+//                     Certified Installer
+//                   </span>
+//                 </div>
+
+//               </div>
+
+//             </div>
+
+//           </div>
+//         </section>
+//       </div>
+
+//       {/* STATS */}
+//       <section className="bg-slate-900 py-12">
+//         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+//           {[
+//             { label: "Happy Clients", val: "500+" },
+//             { label: "States Covered", val: "12+" },
+//             { label: "Projects Completed", val: "1200+" },
+//             { label: "Years Experience", val: "10+" },
+//           ].map((stat, i) => (
+//             <FadeIn key={i}>
+//               <div className="text-orange-500 text-3xl font-black">
+//                 {stat.val}
+//               </div>
+//               <div className="text-slate-400 text-xs uppercase tracking-wide">
+//                 {stat.label}
+//               </div>
+//             </FadeIn>
+//           ))}
+//         </div>
+//       </section>
+
+//       {/* MISSION */}
+//       <section className="py-12">
+//         <div className="w-full md:w-[85%] mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+          
+//           <FadeIn direction="left">
+//             <img src={IMGS.mission} className="rounded-2xl shadow-xl" />
+//           </FadeIn>
+
+//           <FadeIn direction="right">
+//             <h2 className="text-3xl font-bold mb-4">
+//               Powering India with Clean Energy
+//             </h2>
+
+//             <div className="space-y-3">
+//               {[
+//                 "Clean Energy for All",
+//                 "Customer-First Approach",
+//                 "Advanced Solar Technology",
+//                 "Sustainable Growth",
+//               ].map((point, idx) => (
+//                 <div key={idx} className="flex items-center gap-3">
+//                   <CheckCircle size={18} className="text-orange-500" />
+//                   {point}
+//                 </div>
+//               ))}
+//             </div>
+//           </FadeIn>
+
+//         </div>
+//       </section>
+
+//       <FreeInstallation />
+
+//     </div>
+//   );
+// }
