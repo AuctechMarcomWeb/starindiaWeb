@@ -11,10 +11,9 @@ import toast from "react-hot-toast";
 import PageBanner from "../components/sections/PageBanner";
 import contactImg from "../assets/images/about/about-page-img1.png"; // 👉 apni image
 import { FaWhatsapp } from "react-icons/fa";
-
+import { postRequest } from "../Helpers/index";
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,24 +21,17 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  console.log("FORM DATA:", formData);
 
   const [errors, setErrors] = useState({});
 
-  // ✅ Static Contact Data
-  const message = encodeURIComponent(
-    "Hello, I am seeking treatment and would like to know the further process. Please reply as per your convenience.",
-  );
+ 
 
   const contactData = [
     {
       icon: Phone,
       title: "Call Us",
       info: [
-        // {
-        //   text: "+91 9616664333",
-        //   link: `https://wa.me/919616664333?text=${message}`,
-        //   type: "whatsapp",
-        // },
         {
           text: "+91 9076734825",
           link: "tel:+919076734825",
@@ -96,6 +88,7 @@ export default function Contact() {
   // ✅ Handle Change
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value); // 👈 ADD THIS
 
     setFormData((prev) => ({
       ...prev,
@@ -107,22 +100,54 @@ export default function Contact() {
     }
   };
 
-  // ✅ Submit (STATIC)
-  const handleSubmit = (e) => {
+  // ✅ Submit
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!validateForm()) return;
 
-    setSubmitted(true);
+    try {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+      };
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+      const res = await postRequest({ url: `contact`, cred: payload });
 
-    toast.success("Message sent successfully!");
+      console.log("API RESPONSE:", res);
+
+      if (res?.statusCode === 201 || res?.success) {
+        toast.success(res?.message || "Message sent successfully!");
+
+        setSubmitted(true);
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        // 🔴 Handle specific status codes
+        if (res?.statusCode === 409) {
+          toast.error(res?.message || "You already submitted this enquiry");
+        } else if (res?.statusCode === 400) {
+          toast.error(res?.message || "Invalid data");
+        } else if (res?.statusCode === 500) {
+          toast.error(res?.message || "Server error, please try later");
+        } else {
+          toast.error(res?.message || "Something went wrong");
+        }
+      }
+    } catch (error) {
+      console.error(error);
+      // toast.error( "Server error, please try again");
+    }
   };
 
   return (
@@ -228,7 +253,7 @@ export default function Contact() {
                 </h3>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 {/* 🔹 Heading */}
                 <div className="mb-4">
                   <h2 className="text-2xl md:text-3xl font-semibold text-[#008235]">
@@ -267,16 +292,25 @@ focus:border-[#008235]
 focus:outline-none focus:ring-2 focus:ring-[#2c408c] 
 focus:border-[#2c408c] transition"
                   />
+                  {errors.email && (
+                    <p className="text-[#e5792b] text-sm">{errors.email}</p>
+                  )}
                   <input
                     type="tel"
                     name="phone"
                     placeholder="Phone"
                     value={formData.phone}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, ""); // only digits
+                      handleChange({ target: { name: "phone", value } });
+                    }}
                     className="w-full border border-gray-200 p-3 rounded-xl 
 focus:outline-none focus:ring-2 focus:ring-[#2c408c] 
 focus:border-[#2c408c] transition"
                   />
+                  {errors.phone && (
+                    <p className="text-[#e5792b] text-sm">{errors.phone}</p>
+                  )}
                 </div>
 
                 {/* Subject */}
@@ -290,6 +324,9 @@ focus:border-[#2c408c] transition"
 focus:outline-none focus:ring-2 focus:ring-[#2c408c] 
 focus:border-[#2c408c] transition"
                 />
+                {errors.subject && (
+                  <p className="text-[#e5792b] text-sm">{errors.subject}</p>
+                )}
 
                 {/* Message */}
                 <textarea
@@ -302,6 +339,9 @@ focus:border-[#2c408c] transition"
 focus:outline-none focus:ring-2 focus:ring-[#2c408c] 
 focus:border-[#2c408c] transition"
                 />
+                {errors.message && (
+                  <p className="text-[#e5792b] text-sm">{errors.message}</p>
+                )}
 
                 {/* Button */}
                 <button
@@ -324,7 +364,6 @@ focus:border-[#2c408c] transition"
         style={{ border: 0 }}
         loading="lazy"
       ></iframe>
-      
     </div>
   );
 }
