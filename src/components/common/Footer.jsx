@@ -1,10 +1,9 @@
-
 import React, { useEffect } from "react";
 import logo from "../../assets/logo.png";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { Phone, Mail, MapPin } from "lucide-react";
 import ScrollToTopButton from "./ScrollToTopButton";
-import { Link } from "react-router-dom"; // ✅ added
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   useEffect(() => {
@@ -18,151 +17,156 @@ const Footer = () => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     elements.forEach((el) => observer.observe(el));
   }, []);
 
   return (
-    <footer className="bg-green-700 text-white pt-14 relative overflow-hidden">
+    <footer className="bg-green-700 text-white pt-5 relative overflow-hidden">
       {/* Container */}
-      <div className="w-full md:w-[85%] 2xl:w-[70%] mx-auto px-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-10">
-        
-        {/* Logo + About */}
-        <div className="fade-up opacity-0 text-center sm:text-left">
-          <img src={logo} className="w-32 mb-4 mx-auto sm:mx-0" />
+      <div className="w-full md:w-[85%] xl:w-[85%] mx-auto px-4 py-12 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 text-left">
+          {/* Logo + About */}
+          <div className="fade-up opacity-0">
+            <img src={logo} className="w-32 mb-4" />
 
-          <p className="text-sm leading-6 text-gray-300">
-            Powering a sustainable future with innovative solar solutions. Join
-            us in making the world greener, one panel at a time! Trusted by 500+
-            clients across residential, commercial & industrial projects.
-          </p>
+            <p className="text-sm leading-6 text-gray-300">
+              Powering a sustainable future with innovative solar solutions.
+              Join us in making the world greener, one panel at a time! Trusted
+              by 500+ clients across residential, commercial & industrial
+              projects.
+            </p>
 
-          {/* Social */}
-          <div className="flex gap-3 mt-5 justify-center sm:justify-start">
-            {[FaFacebook, FaInstagram, FaLinkedin, FaYoutube].map((Icon, i) => (
-              <div key={i} className="group relative overflow-hidden cursor-pointer">
-                <Icon className="bg-white text-green-800 p-2 rounded w-9 h-9 cursor-pointer transition-all duration-300 group-hover:bg-orange-500 group-hover:text-white" />
-                <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 blur-md transition"></span>
-              </div>
-            ))}
+            {/* Social */}
+            <div className="flex gap-3 pt-3 justify-start">
+              {[FaFacebook, FaInstagram, FaLinkedin, FaYoutube].map(
+                (Icon, i) => (
+                  <div
+                    key={i}
+                    className="w-9 h-9 flex items-center justify-center rounded-md bg-white/10 hover:bg-orange-400 hover:text-black transition-all duration-300 cursor-pointer"
+                  >
+                    <Icon size={16} />
+                  </div>
+                ),
+              )}
+            </div>
           </div>
-        </div>
 
-        {/* Quick Links */}
-        <div className="fade-up opacity-0 text-center sm:text-left">
-          <h3 className="text-lg font-semibold mb-4 border-b-2 border-orange-500 inline-block">
-            Quick Links
-          </h3>
+          {/* Quick Links */}
+          <div className="fade-up opacity-0">
+            <h3 className="text-lg font-semibold mb-4 border-b-2 border-orange-500 inline-block">
+              Quick Links
+            </h3>
 
-          <ul className="space-y-2 text-gray-300">
-            {[
-              { name: "Home", path: "/" },
-              { name: "About Us", path: "/about" },
-              { name: "Gallery", path: "/gallery" },
-              { name: "Blogs", path: "/blog" },
-              { name: "Contact Us", path: "/contact" },
-            ].map((item, i) => (
-              <li key={i}>
-                <Link
-                  to={item.path}
-                  className="hover:text-orange-400 cursor-pointer transition duration-300 hover:translate-x-1 block"
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Services */}
-        <div className="fade-up opacity-0 text-center sm:text-left">
-          <h3 className="text-lg font-semibold mb-4 border-b-2 border-orange-500 inline-block">
-            Our Services
-          </h3>
-
-          <ul className="space-y-2 text-gray-300">
-            {[
-              { name: "On-Grid Solutions", path: "/services/on-grid" },
-              { name: "Off Grid Solar", path: "/services/off-grid" },
-              { name: "Hybrid Solar", path: "/services/hybrid" },
-              { name: "Solar Aata-Chakki", path: "/services/atta-chakki" },
-              { name: "Solar Pump", path: "/services/pump" },
-            ].map((item, i) => (
-              <li key={i}>
-                <Link
-                  to={item.path}
-                  className="hover:text-orange-400 transition cursor-pointer block"
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div className="fade-up opacity-0 text-center sm:text-left">
-          <h3 className="text-lg font-semibold mb-4 border-b-2 border-orange-500 inline-block">
-            Contact Us
-          </h3>
-
-          <div className="space-y-4 text-gray-300 text-sm">
-            
-            <a
-              href="tel:+919076734825"
-              className="flex gap-2 items-start sm:items-center justify-start text-left hover:text-orange-400 transition cursor-pointer"
-            >
-              <Phone size={16} className="text-orange-400" />
-              <span>+91-9076734825</span>
-            </a>
-
-            <a
-              href="mailto:starindiaenergy@gmail.com"
-              className="flex gap-2 items-start sm:items-center justify-start text-left hover:text-orange-400 transition cursor-pointer"
-            >
-              <Mail size={16} className="text-orange-400" />
-              <span>starindiaenergy@gmail.com</span>
-            </a>
-
-            <a
-              href="https://www.google.com/maps?ll=26.863692,80.997792&z=13&t=m&hl=en&gl=IN&mapclient=embed&cid=15286058874902622042"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex gap-2 items-start sm:items-center justify-start text-left hover:text-orange-400 transition cursor-pointer"
-            >
-              <MapPin size={16} className="text-orange-400" />
-              <span className="text-center sm:text-left">
-                D-222 UGF Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010
-              </span>
-            </a>
+            <ul className="space-y-2 text-gray-300">
+              {[
+                { name: "Home", path: "/" },
+                { name: "About Us", path: "/about" },
+                { name: "Gallery", path: "/gallery" },
+                { name: "Blogs", path: "/blog" },
+                { name: "Contact Us", path: "/contact" },
+              ].map((item, i) => (
+                <li key={i}>
+                  <Link
+                    to={item.path}
+                    className="hover:text-orange-400 transition duration-300 hover:translate-x-1 block"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
 
-        {/* Branches */}
-        <div className="fade-up opacity-0 text-center sm:text-left">
-          <h3 className="text-lg font-semibold mb-4 border-b-2 border-orange-500 inline-block">
-            Branches
-          </h3>
+          {/* Services */}
+          <div className="fade-up opacity-0">
+            <h3 className="text-lg font-semibold mb-4 border-b-2 border-orange-500 inline-block">
+              Our Services
+            </h3>
 
-          <ul className="text-sm text-gray-300 space-y-2">
-            <li className="hover:text-orange-400 transition cursor-pointer">
-              ➤ M 177, Chungi - Parag Rd, Lucknow 226012
-            </li>
-            <li className="hover:text-orange-400 transition cursor-pointer">
-              ➤ Petrol Pump, Dubagga, Lucknow 226003
-            </li>
-            <li className="hover:text-orange-400 transition cursor-pointer">
-              ➤ Nandan, Sitapur Rd, Lucknow 226201
-            </li>
-          </ul>
+            <ul className="space-y-2 text-gray-300">
+              {[
+                { name: "On-Grid Solutions", path: "/services/on-grid" },
+                { name: "Off Grid Solar", path: "/services/off-grid" },
+                { name: "Hybrid Solar", path: "/services/hybrid" },
+                { name: "Solar Aata-Chakki", path: "/services/atta-chakki" },
+                { name: "Solar Pump", path: "/services/pump" },
+              ].map((item, i) => (
+                <li key={i}>
+                  <Link
+                    to={item.path}
+                    className="hover:text-orange-400 transition block"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="fade-up opacity-0">
+            <h3 className="text-lg font-semibold mb-4 border-b-2 border-orange-500 inline-block">
+              Contact Us
+            </h3>
+
+            <div className="space-y-4 text-gray-300 text-sm">
+              <a
+                href="tel:+919076734825"
+                className="flex gap-2 items-start hover:text-orange-400 transition"
+              >
+                <Phone size={16} className="text-orange-400" />
+                <span>+91-9076734825</span>
+              </a>
+
+              <a
+                href="mailto:starindiaenergy@gmail.com"
+                className="flex gap-2 items-start hover:text-orange-400 transition"
+              >
+                <Mail size={16} className="text-orange-400" />
+                <span>starindiaenergy@gmail.com</span>
+              </a>
+
+              <a
+                href="https://www.google.com/maps?ll=26.863692,80.997792&z=13&t=m&hl=en&gl=IN&mapclient=embed&cid=15286058874902622042"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-2 items-start hover:text-orange-400 transition"
+              >
+                <MapPin size={16} className="text-orange-400" />
+                <span>
+                  D-222 UGF Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010
+                </span>
+              </a>
+            </div>
+          </div>
+
+          {/* Branches */}
+          <div className="fade-up opacity-0">
+            <h3 className="text-lg font-semibold mb-4 border-b-2 border-orange-500 inline-block">
+              Branches
+            </h3>
+
+            <ul className="text-sm text-gray-300 space-y-2">
+              <li className="hover:text-orange-400 transition cursor-pointer">
+                ➤ M 177, Chungi - Parag Rd, Lucknow 226012
+              </li>
+              <li className="hover:text-orange-400 transition cursor-pointer">
+                ➤ Petrol Pump, Dubagga, Lucknow 226003
+              </li>
+              <li className="hover:text-orange-400 transition cursor-pointer">
+                ➤ Nandan, Sitapur Rd, Lucknow 226201
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="mt-10 bg-green-900 text-center py-4 text-sm text-gray-400 px-3">
-        © 2025 Star India Solar. All Rights Reserved
+        © 2026 Star India Solar. All Rights Reserved
       </div>
 
       {/* Animation Styles */}

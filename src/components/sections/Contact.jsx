@@ -4,12 +4,16 @@ import React, { useState } from "react";
 import { Phone, Mail, MapPin, CheckCircle, Send } from "lucide-react";
 
 import contactImg from "../../assets/images/about/about-page-img1.png";
+import { postRequest } from "../../Helpers/index"; // apne path ke hisaab se
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const [form, setForm] = useState({
     name: "",
     phone: "",
     email: "",
+    subject: "", // ✅ ADD THIS
+
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -23,6 +27,8 @@ const Contact = () => {
       e.phone = "Enter valid 10-digit mobile number";
     if (form.email && !/\S+@\S+\.\S+/.test(form.email))
       e.email = "Enter valid email";
+    if (!form.subject.trim()) e.subject = "Subject is required";
+
     if (!form.message.trim()) e.message = "Message is required";
     return e;
   };
@@ -33,17 +39,45 @@ const Contact = () => {
     if (errors[name]) setErrors((p) => ({ ...p, [name]: "" }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const e2 = validate();
-    if (Object.keys(e2).length) return setErrors(e2);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const e2 = validate();
 
+  if (Object.keys(e2).length) return setErrors(e2);
+
+  try {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+
+    const payload = {
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      subject: form.subject,
+      message: form.message,
+    };
+
+    // 👉 API call
+    const res = await postRequest({ url: `contact`, cred: payload });
+
+    if (res?.success) {
       setSubmitted(true);
-    }, 1500);
-  };
+      setForm({
+        name: "",
+        phone: "",
+        email: "",
+        subject: "", // ✅ RESET THIS
+        message: "",
+      });
+    } else {
+      toast.success(res?.data?.message || "Contact message sent successfully");
+    }
+  } catch (err) {
+    console.error(err);
+    // toast.error("Server error, try again");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section className="w-full bg-gray-50 py-10 sm:py-14 md:py-20 px-4 sm:px-6">
@@ -115,8 +149,7 @@ const Contact = () => {
                   label: "Location",
                   value:
                     "D-222 UGF Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010",
-                  link:
-                    "https://www.google.com/maps?q=D-222+UGF+Vibhuti+Khand+Gomti+Nagar+Lucknow",
+                  link: "https://www.google.com/maps?q=D-222+UGF+Vibhuti+Khand+Gomti+Nagar+Lucknow",
                 },
               ].map((item, i) => (
                 <div
@@ -124,7 +157,7 @@ const Contact = () => {
                   onClick={() =>
                     window.open(
                       item.link,
-                      item.label === "Location" ? "_blank" : "_self"
+                      item.label === "Location" ? "_blank" : "_self",
                     )
                   }
                   className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition flex flex-col justify-center items-center text-center h-full cursor-pointer"
@@ -249,6 +282,25 @@ const Contact = () => {
                         </p>
                       )}
                     </div>
+                  </div>
+
+                  {/* Subject */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-600 mb-1.5">
+                      Subject <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      className={`jj-input ${errors.subject ? "error" : ""}`}
+                      name="subject"
+                      value={form.subject}
+                      onChange={handleChange}
+                      placeholder="Enter subject"
+                    />
+                    {errors.subject && (
+                      <p className="text-red-500 text-[11px] mt-1">
+                        {errors.subject}
+                      </p>
+                    )}
                   </div>
 
                   {/* Message */}
