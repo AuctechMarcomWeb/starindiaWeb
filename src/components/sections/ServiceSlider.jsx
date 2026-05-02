@@ -2,6 +2,12 @@ import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import img1 from "../../assets/images/service-solutions/service-solutions-img1.png";
+import solaratta from "../../assets/images/solar-benefits/solaratta.png"
+
+import solarBenefits from "../../assets/images/solar-benefits/solar-benefits-img.png";
+
+import offgrid from "../../assets/images/solar-benefits/offgrid.jpg"
+import ongrid from "../../assets/images/solar-benefits/ongrid.jpg"
 import img2 from "../../assets/images/service-solutions/service-solutions-img2.png";
 import img3 from "../../assets/images/service-solutions/service-solutions-img3.png";
 import img4 from "../../assets/images/service-solutions/service-solutions-img4.png";
@@ -15,35 +21,35 @@ const services = [
     id: 1,
     title: "On-Grid Solar",
     desc: "Reduce electricity bills by exporting surplus energy to the grid.",
-    image: img3,
+    image: ongrid,
     link: "/services/on-grid",
   },
   {
     id: 2,
     title: "Off-Grid Solar",
     desc: "Complete energy independence with battery-powered systems.",
-    image: img2,
+    image: offgrid,
     link: "/services/off-grid",
   },
   {
     id: 3,
     title: "Hybrid Solar",
     desc: "Grid + battery backup for uninterrupted power supply.",
-    image: img3,
+    image: img2,
     link: "/services/hybrid",
   },
   {
     id: 4,
     title: "Solar Pump",
     desc: "Efficient solar-powered irrigation for agriculture.",
-    image: img4,
+    image: solarBenefits,
     link: "/services/solar-pump",
   },
   {
     id: 5,
     title: "Aata Chakki",
     desc: "Efficient solar-powered irrigation for agriculture.",
-    image: img1,
+    image: solaratta,
     link: "/services/aata-chakki",
   },
 ];
