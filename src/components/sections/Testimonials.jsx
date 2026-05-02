@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable react-hooks/refs */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -6,93 +7,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Star } from "lucide-react";
 import { getRequest } from "../../Helpers";
-
-// ── Swiper CSS ──
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import TestimonialSkeleton from "./TestimonialSkeleton";
 
-// ─────────────────────────────────────────
-// Static fallback data
-// ─────────────────────────────────────────
-const staticTestimonials = [
-  {
-    title: "Rahul Sharma",
-    description:
-      "Excellent service and great experience. Highly recommended! The team was incredibly professional throughout.",
-    rating: 5,
-    role: "One Year With Us",
-    profileImage:
-      "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png",
-  },
-  {
-    title: "Neha Verma",
-    description:
-      "Very professional team and smooth process. Everything was handled with great care and attention to detail.",
-    rating: 4,
-    role: "One Year With Us",
-    profileImage:
-      "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png",
-  },
-  {
-    title: "Amit Singh",
-    description:
-      "Affordable and reliable service. Loved every bit of it. Would definitely recommend to friends and family.",
-    rating: 5,
-    role: "One Year With Us",
-    profileImage:
-      "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png",
-  },
-  {
-    title: "Priya Mehta",
-    description:
-      "Outstanding support and quick response. Made the whole process seamless and stress-free for us.",
-    rating: 5,
-    role: "Two Years With Us",
-    profileImage:
-      "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png",
-  },
-  {
-    title: "Vikram Joshi",
-    description:
-      "Great value for money. The team truly understands customer needs and delivers beyond expectations.",
-    rating: 4,
-    role: "Six Months With Us",
-    profileImage:
-      "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png",
-  },
-  {
-    title: "Anjali Gupta",
-    description:
-      "Smooth, reliable and very professional. I would not hesitate to recommend this to anyone around.",
-    rating: 5,
-    role: "One Year With Us",
-    profileImage:
-      "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png",
-  },
-  {
-    title: "Saurabh Tiwari",
-    description:
-      "Exceptional quality and timely delivery. Every step was communicated clearly. Truly a 5-star experience.",
-    rating: 5,
-    role: "Eight Months With Us",
-    profileImage:
-      "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png",
-  },
-  {
-    title: "Divya Rao",
-    description:
-      "I was skeptical at first, but the results exceeded my expectations. Will definitely use again!",
-    rating: 4,
-    role: "Three Months With Us",
-    profileImage:
-      "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png",
-  },
-];
-
-// ─────────────────────────────────────────
 // Rating Stars
-// ─────────────────────────────────────────
 const RatingStars = ({ rating = 0 }) => (
   <div className="flex gap-1">
     {[1, 2, 3, 4, 5].map((i) => (
@@ -108,9 +28,7 @@ const RatingStars = ({ rating = 0 }) => (
   </div>
 );
 
-// ─────────────────────────────────────────
 // Single Card
-// ─────────────────────────────────────────
 function TestimonialCard({ item }) {
   const [hovered, setHovered] = useState(false);
 
@@ -162,12 +80,12 @@ function TestimonialCard({ item }) {
           >
             {item.title}
           </p>
-          <p
+          {/* <p
             className={`text-xs transition-colors duration-300
               ${hovered ? "text-green-200" : "text-gray-400"}`}
           >
             {item.role || "Our Client"}
-          </p>
+          </p> */}
         </div>
       </div>
 
@@ -187,57 +105,42 @@ function TestimonialCard({ item }) {
   );
 }
 
-// ─────────────────────────────────────────
-// Skeleton Card
-// ─────────────────────────────────────────
-const SkeletonCard = () => (
-  <div className="bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-md animate-pulse">
-    <div className="flex gap-3 mb-4">
-      <div className="w-11 h-11 rounded-full bg-gray-200 flex-shrink-0" />
-      <div className="flex-1 space-y-2 pt-1">
-        <div className="h-3.5 bg-gray-200 rounded-full w-3/4" />
-        <div className="h-3 bg-gray-200 rounded-full w-1/2" />
-      </div>
-    </div>
-    <div className="flex gap-1 mb-3">
-      {[...Array(5)].map((_, i) => (
-        <div key={i} className="w-4 h-4 bg-gray-200 rounded" />
-      ))}
-    </div>
-    <div className="space-y-2">
-      <div className="h-3 bg-gray-200 rounded-full" />
-      <div className="h-3 bg-gray-200 rounded-full w-5/6" />
-      <div className="h-3 bg-gray-200 rounded-full w-4/6" />
-    </div>
-  </div>
-);
-
-// ─────────────────────────────────────────
 // Main Component
-// ─────────────────────────────────────────
 export default function Testimonial() {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(false);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+ const [searchTerm, setSearchTerm] = useState("");
+ const [page, setPage] = useState(1);
+ const [limit, setLimit] = useState(10);
+ const [total, setTotal] = useState(0);
+ const [updateStatus, setUpdateStatus] = useState(false);
 
-  // API fetch → fallback to static
-  useEffect(() => {
-    setLoading(true);
-    const query = new URLSearchParams({
-      search: "",
-      page: 1,
-      limit: 10,
-    }).toString();
+ useEffect(() => {
+   setLoading(true);
 
-    getRequest(`testimonials?${query}`)
-      .then((res) => {
-        const data = res?.data?.data?.testimonials;
-        setTestimonials(data && data.length > 0 ? data : staticTestimonials);
-      })
-      .catch(() => setTestimonials(staticTestimonials))
-      .finally(() => setLoading(false));
-  }, []);
+   const query = new URLSearchParams({
+     page,
+     limit,
+     sortBy: "recent",
+     isActive: true,
+     search: searchTerm || "",
+   }).toString();
+
+   getRequest(`testimonials?${query}`)
+     .then((res) => {
+        console.log("Fetched Testimonials:", res);
+         const data = res?.data?.data?.testimonials || [];
+         setTestimonials(data);
+         setTotal(res?.data?.data?.totalTestimonials || 0);
+     })
+     .catch((error) => {
+       console.log("error", error);
+       setTestimonials([]);
+     })
+     .finally(() => setLoading(false));
+ }, [page, limit, searchTerm, updateStatus]);
 
   return (
     <>
@@ -284,18 +187,12 @@ export default function Testimonial() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-snug">
-              What Our <span style={{ color: "#008235" }}>Clients Say</span> 
+              What Our <span style={{ color: "#008235" }}>Clients Say</span>
             </h2>
           </div>
 
           {/* ── Loading Skeletons ── */}
-          {loading && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {[...Array(3)].map((_, i) => (
-                <SkeletonCard key={i} />
-              ))}
-            </div>
-          )}
+          {loading && <TestimonialSkeleton />}
 
           {/* ── Swiper ── */}
           {!loading && testimonials.length > 0 && (
@@ -410,10 +307,10 @@ export default function Testimonial() {
           {!loading && testimonials.length === 0 && (
             <div className="text-center bg-white rounded-2xl shadow p-10 max-w-md mx-auto">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                No Testimonials Found
+                No Testimonials Yet
               </h3>
               <p className="text-gray-500 text-sm">
-                Please check back later ✨
+                Please check back later
               </p>
             </div>
           )}

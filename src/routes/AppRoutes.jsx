@@ -4,7 +4,6 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Blog from "../pages/Blog";
-import BlogDetails from "../features/blog/BlogDetails";
 import Notfound from "../pages/Notfound";
 import Gallery from "../pages/Gallery";
 import Ongrid from "../features/services/Ongrid";
@@ -12,6 +11,7 @@ import Offgrid from "../features/services/Offgrid";
 import Hybrid from "../features/services/Hybrid";
 import Atta from "../features/services/Atta";
 import Solarpump from "../features/services/Solarpump";
+import BlogDetails from "../pages/BlogDetails";
 
 
 
