@@ -146,10 +146,15 @@ const finalBg = bgImage || defaultBg;
   return (
     <section className="relative overflow-hidden text-white">
       {/* Ken-Burns background — key re-mounts on route change = re-animates */}
-      <div
+      <img
         key={`bg-${location.pathname}`}
-        className="pb-bg absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${finalBg})` }}
+        src={finalBg}
+        alt=""
+        aria-hidden="true"
+        className="pb-bg absolute inset-0 w-full h-full object-cover object-center"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
       />
 
       {/* Gradient overlay */}

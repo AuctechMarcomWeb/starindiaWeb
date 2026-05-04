@@ -53,7 +53,8 @@ const HeroSections = () => {
         setTotal(responseData?.totalSliders || 0);
       })
       .catch((error) => {
-        console.log("error", error);
+        // silently handle error in production
+        if (import.meta.env.DEV) console.error("Hero slider error:", error);
       })
       .finally(() => setLoading(false));
   }, [page, limit, searchTerm, updateStatus]);
@@ -73,7 +74,7 @@ const HeroSections = () => {
 
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden" role="region" aria-label="Hero slideshow">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -81,19 +82,24 @@ const HeroSections = () => {
           className={`absolute inset-0 transition-opacity duration-1000 ${
             index === current ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
+          aria-hidden={index !== current}
         >
-          {/* Background */}
-          <div
-            className="w-full h-full bg-center bg-cover flex items-center justify-center"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${
-                slide.image ||
-                "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png"
-              })`,
-            }}
-          >
+          {/* Background - use img for LCP optimization on first slide */}
+          <div className="w-full h-full flex items-center justify-center relative">
+            <img
+              src={slide.image || "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png"}
+              alt={slide?.heading || "Solar energy solutions"}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchpriority={index === 0 ? "high" : "auto"}
+              decoding={index === 0 ? "sync" : "async"}
+              width="1920"
+              height="1080"
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
             {/* Content */}
-            <div className="text-center px-4 max-w-5xl">
+            <div className="relative z-10 text-center px-4 max-w-5xl">
               <p className="text-white tracking-widest text-sm md:text-base uppercase mb-3 animate-fadeUp">
                 {slide?.title}
               </p>
@@ -118,14 +124,15 @@ const HeroSections = () => {
 
                 {/* Video Button */}
                 <div className="flex items-center gap-4 cursor-pointer">
-                  <div
+                  <button
                     onClick={() => setShowVideo(true)}
-                    className="relative w-14 h-14 flex items-center justify-center border-2 border-white rounded-full group"
+                    className="relative w-14 h-14 flex items-center justify-center border-2 border-white rounded-full group bg-transparent"
+                    aria-label="Watch company introduction video"
                   >
                     {/* Pulse */}
-                    <span className="absolute w-20 h-20 border border-white/30 rounded-full animate-ping"></span>
-                    ▶
-                  </div>
+                    <span className="absolute w-20 h-20 border border-white/30 rounded-full animate-ping" aria-hidden="true"></span>
+                    <span aria-hidden="true">▶</span>
+                  </button>
 
                   <p className="text-white font-medium">Company Intro</p>
                 </div>
@@ -137,17 +144,19 @@ const HeroSections = () => {
 
       {/* Video Popup */}
       {showVideo && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-label="Company introduction video">
           <div className="relative w-[90%] md:w-[700px]">
             <video
               src={video}
               controls
               autoPlay
               className="rounded-lg w-full"
+              aria-label="Star India Energy Solutions company introduction video"
             />
             <button
               onClick={() => setShowVideo(false)}
               className="absolute -top-10 right-0 text-white text-3xl"
+              aria-label="Close video"
             >
               ✕
             </button>

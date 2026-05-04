@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import PageBanner from "../components/sections/PageBanner";
 import {
@@ -12,6 +13,7 @@ import {
 import { getRequest } from "../Helpers/index";
 import BlogSkeleton from "./BlogSkeleton";
 import PaginationComponent from "../components/sections/PaginationComponent";
+import MobileCTA from "../components/sections/MobileCTA";
 const marqueeItems = [
   { icon: Sun, label: "Clean Solar Energy" },
   { icon: Zap, label: "Power Backup Solution" },
@@ -37,12 +39,11 @@ useEffect(() => {
   }).toString();
   getRequest(`blogs?${query}`)
     .then((res) => {
-      console.log("Blogs API:", res);
         setBlogs(res?.data?.data?.blogs || []);
         setTotal(res?.data?.data?.totalBlogs || 0);
     })
     .catch((err) => {
-      console.log("Blog error:", err);
+      if (import.meta.env.DEV) console.error("Blog error:", err);
       setBlogs([]);
     })
     .finally(() => setLoading(false));
@@ -71,6 +72,33 @@ const formatTimeOnly = (date) => {
 
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
+      <Helmet>
+        <title>
+          Solar Energy Blog | Tips, News & Insights – Star India Energy
+          Solutions
+        </title>
+        <meta
+          name="description"
+          content="Read the latest solar energy blogs, tips, and industry news from Star India Energy Solutions. Learn about solar panel savings, government subsidies, and green energy trends in India."
+        />
+        <meta
+          name="keywords"
+          content="solar energy blog India, solar panel tips, solar subsidy news, renewable energy India, solar installation guide, solar energy savings, green energy blog"
+        />
+        <link rel="canonical" href="https://www.starindiaenergy.com/blog" />
+        <meta
+          property="og:title"
+          content="Solar Energy Blog | Star India Energy Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Latest solar energy tips, news and insights. Learn about solar savings, subsidies and green energy in India."
+        />
+        <meta
+          property="og:url"
+          content="https://www.starindiaenergy.com/blog"
+        />
+      </Helmet>
       <PageBanner />
       {/* MARQUEE */}
       <div className="relative bg-gradient-to-r from-green-600/90 via-green-600/90 to-green-600/90 py-3 overflow-hidden cursor-pointer">
@@ -122,8 +150,7 @@ const formatTimeOnly = (date) => {
               <article
                 key={post?._id}
                 // onClick={() => navigate(`/blog/${post?._id}`)}
-                onClick={() => navigate(`/blog/${post?.
-                  _id}`)}
+                onClick={() => navigate(`/blog/${post?._id}`)}
                 // onClick={() =>
                 //   navigate(`/blog/${post?.url}`, {
                 //     state: { id: post?._id },
@@ -141,7 +168,9 @@ const formatTimeOnly = (date) => {
                       post?.mainImage ||
                       "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png"
                     }
-                    alt={post?.url}
+                    alt={post?.heading || post?.url}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
@@ -188,6 +217,7 @@ const formatTimeOnly = (date) => {
           />
         )}
       </section>
+      <MobileCTA />
 
       <style>{`
         .marquee-container { overflow:hidden; white-space:nowrap }

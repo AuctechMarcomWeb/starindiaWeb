@@ -69,6 +69,8 @@ function ServiceCard({ item }) {
         <img
           src={item.image}
           alt={item.title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
         />
       </div>
@@ -133,15 +135,8 @@ export default function ServicesSlider() {
             spaceBetween={20}
             loop
             autoplay={{ delay: 3000 }}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            onBeforeInit={(swiper) => {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-            }}
             pagination={{ clickable: true }}
+            className="serviceSwiper !pb-20"
             breakpoints={{
               0: { slidesPerView: 1 },
               640: { slidesPerView: 2 },

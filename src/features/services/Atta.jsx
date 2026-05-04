@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import PageBanner from "../../components/sections/PageBanner";
 import FreeInstallation from "../../components/sections/FreeInstallation";
 import FadeIn from "../../components/sections/FadeIn";
@@ -38,6 +39,7 @@ import serviceSolBg from "../../assets/images/service-solutions/service-solution
 import serviceSolImg1 from "../../assets/images/service-solutions/service-solutions-img1.png";
 import serviceSolImg2 from "../../assets/images/service-solutions/service-solutions-img2.png";
 import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
+import MobileCTA from "../../components/sections/MobileCTA";
 
 // ── Static Data ──
 const benefits = [
@@ -127,6 +129,35 @@ const SectionTag = ({ children }) => (
 const Atta = () => {
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
+      <Helmet>
+        <title>
+          Solar Atta Chakki | Solar Flour Mill – Star India Energy Solutions
+        </title>
+        <meta
+          name="description"
+          content="Power your atta chakki (flour mill) with solar energy. Star India Energy Solutions offers solar atta chakki installation to cut electricity costs by up to 90% for flour mill owners in India."
+        />
+        <meta
+          name="keywords"
+          content="solar atta chakki India, solar flour mill, solar powered chakki, solar energy for flour mill, atta chakki solar panel, solar mill India, Star India Energy Solutions"
+        />
+        <link
+          rel="canonical"
+          href="https://www.starindiaenergy.com/services/atta-chakki"
+        />
+        <meta
+          property="og:title"
+          content="Solar Atta Chakki | Star India Energy Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Cut flour mill electricity costs by 90% with solar atta chakki installation across India."
+        />
+        <meta
+          property="og:url"
+          content="https://www.starindiaenergy.com/services/atta-chakki"
+        />
+      </Helmet>
       <PageBanner />
 
       {/* ══════════════════════════════════════
@@ -142,8 +173,8 @@ const Atta = () => {
             <div>
               {/* <SectionTag>Atta Chakki Solution</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Atta Chakki Solution
-          </span>
+                Atta Chakki Solution
+              </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-4">
                 Smart Power Solution for{" "}
                 <span className="text-[#008235]">
@@ -236,8 +267,8 @@ const Atta = () => {
               <div>
                 {/* <SectionTag>Key Benefits</SectionTag> */}
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Key Benefits
-          </span>
+                  Key Benefits
+                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   Why Choose an{" "}
                   <span className="text-[#008235]">Atta Chakki Solar?</span>
@@ -280,8 +311,8 @@ const Atta = () => {
             <div className="text-center mb-10 md:mb-14">
               {/* <SectionTag>Our Process</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Our Process
-          </span>
+                Our Process
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
                 How We Deliver Your Atta chakki Solar Solution
               </h2>
@@ -330,8 +361,8 @@ const Atta = () => {
               <div>
                 {/* <SectionTag>Challenges & Limitations</SectionTag> */}
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Challenges & Limitations
-          </span>
+                  Challenges & Limitations
+                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                   Things to Know Before You{" "}
                   <span className="text-[#e5792b]">Go Atta Chakki</span>
@@ -381,8 +412,8 @@ const Atta = () => {
             <div className="text-center mb-10 md:mb-14">
               {/* <SectionTag>What We Offer</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            What We Offer
-          </span>
+                What We Offer
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Complete Atta Chakki Packages
               </h2>
@@ -390,41 +421,40 @@ const Atta = () => {
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-                {
-                  img: offerImg1,
-                  icon: offerIcon1,
-                  title: "Small Chakki Setup",
-                  desc: "Ideal for small flour mills and local shops with low to medium load requirements.",
-                  points: [
-                    "Affordable solar solution",
-                    "1–5 HP motor support",
-                    "Quick ROI",
-                  ],
-                },
-                {
-                  img: offerImg2,
-                  icon: offerIcon2,
-                  title: "Commercial Chakki",
-                  desc: "Designed for medium-scale flour mills with higher production needs.",
-                  points: [
-                    "5–15 HP motor support",
-                    "Reduced electricity bills",
-                    "Optional battery backup",
-                  ],
-                },
-                {
-                  img: offerImg3,
-                  icon: offerIcon3,
-                  title: "Industrial Flour Mill",
-                  desc: "High-capacity solar systems for large-scale grinding businesses.",
-                  points: [
-                    "Heavy load handling",
-                    "High efficiency system",
-                    "Custom design solution",
-                  ],
-                },
-              ]
-              .map((card, i) => (
+              {
+                img: offerImg1,
+                icon: offerIcon1,
+                title: "Small Chakki Setup",
+                desc: "Ideal for small flour mills and local shops with low to medium load requirements.",
+                points: [
+                  "Affordable solar solution",
+                  "1–5 HP motor support",
+                  "Quick ROI",
+                ],
+              },
+              {
+                img: offerImg2,
+                icon: offerIcon2,
+                title: "Commercial Chakki",
+                desc: "Designed for medium-scale flour mills with higher production needs.",
+                points: [
+                  "5–15 HP motor support",
+                  "Reduced electricity bills",
+                  "Optional battery backup",
+                ],
+              },
+              {
+                img: offerImg3,
+                icon: offerIcon3,
+                title: "Industrial Flour Mill",
+                desc: "High-capacity solar systems for large-scale grinding businesses.",
+                points: [
+                  "Heavy load handling",
+                  "High efficiency system",
+                  "Custom design solution",
+                ],
+              },
+            ].map((card, i) => (
               <FadeIn key={card.title} direction="up" delay={i * 120}>
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                   <div className="relative overflow-hidden">
@@ -464,6 +494,7 @@ const Atta = () => {
       </section>
 
       <FreeInstallation />
+      <MobileCTA/>
     </div>
   );
 };

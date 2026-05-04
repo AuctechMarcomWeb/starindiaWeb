@@ -72,7 +72,9 @@ const WhyChoose = () => {
         <div className="hidden md:block absolute right-0 top-0 w-1/2 h-full pointer-events-none">
           <img
             src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200"
-            alt="Solar Energy System"
+            alt="Solar Energy System installation"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-center"
             style={{
               maskImage: "linear-gradient(to right, transparent 0%, black 25%)",
@@ -86,7 +88,9 @@ const WhyChoose = () => {
         <div className="md:hidden w-full px-6 pb-10">
           <img
             src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800"
-            alt="Solar Energy"
+            alt="Solar Energy installation"
+            loading="lazy"
+            decoding="async"
             className="w-full h-56 object-cover rounded-2xl shadow-xl"
           />
         </div>

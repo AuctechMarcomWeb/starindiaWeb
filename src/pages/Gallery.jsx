@@ -2,9 +2,11 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { Sparkles } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import PageBanner from "../components/sections/PageBanner";
 import { getRequest } from "../Helpers/index";
 import GallerySkeleton from "../components/sections/GallerySkeleton";
+import MobileCTA from "../components/sections/MobileCTA";
 
 const Gallery = () => {
 const [gallery, setGallery] = useState([]);
@@ -25,11 +27,10 @@ useEffect(() => {
   }).toString();
   getRequest(`gallery?${query}`)
     .then((res) => {
-      console.log("Gallery response:", res);
         setGallery(res?.data?.data?.gallery || []);
     })
     .catch((err) => {
-      console.log("Gallery error:", err);
+      if (import.meta.env.DEV) console.error("Gallery error:", err);
       setGallery([]);
     })
     .finally(() => setLoading(false));
@@ -37,6 +38,15 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-red-50">
+      <Helmet>
+        <title>Solar Installation Gallery | Star India Energy Solutions</title>
+        <meta name="description" content="View our solar installation gallery – rooftop solar panels, solar water pumps, solar atta chakki, and more. See real projects completed by Star India Energy Solutions across India." />
+        <meta name="keywords" content="solar installation gallery, solar panel photos India, rooftop solar images, solar project gallery, Star India Energy Solutions gallery" />
+        <link rel="canonical" href="https://www.starindiaenergy.com/gallery" />
+        <meta property="og:title" content="Solar Installation Gallery | Star India Energy Solutions" />
+        <meta property="og:description" content="Real solar installation projects across India. View our gallery of rooftop solar, pumps, and more." />
+        <meta property="og:url" content="https://www.starindiaenergy.com/gallery" />
+      </Helmet>
       <PageBanner />
 
       {/* GALLERY GRID SECTION */}
@@ -67,7 +77,9 @@ useEffect(() => {
                 {/* Image */}
                 <img
                   src={item.url}
-                  alt={item.title}
+                  alt={item.title || "Solar installation gallery image"}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
                 />
 
@@ -92,6 +104,7 @@ useEffect(() => {
           </div>
         )}
       </section>
+      <MobileCTA />
     </div>
   );
 };

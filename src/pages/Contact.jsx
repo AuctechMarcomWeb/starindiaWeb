@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import {
   Mail,
   Phone,
@@ -12,20 +14,18 @@ import PageBanner from "../components/sections/PageBanner";
 import contactImg from "../assets/images/about/about-page-img1.png"; // 👉 apni image
 import { FaWhatsapp } from "react-icons/fa";
 import { postRequest } from "../Helpers/index";
+import MobileCTA from "../components/sections/MobileCTA";
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
     subject: "",
     message: "",
   });
-  console.log("FORM DATA:", formData);
 
   const [errors, setErrors] = useState({});
-
- 
 
   const contactData = [
     {
@@ -59,100 +59,110 @@ export default function Contact() {
     },
   ];
 
-  // ✅ Validation
-  const validateForm = () => {
-    let newErrors = {};
+  const validate = () => {
+    const e = {};
+    if (!form.name.trim()) e.name = "Name is required";
+    if (!form.phone.trim() || !/^[6-9]\d{9}$/.test(form.phone))
+      e.phone = "Enter valid 10-digit mobile number";
+    if (form.email && !/\S+@\S+\.\S+/.test(form.email))
+      e.email = "Enter valid email";
+    if (!form.subject.trim()) e.subject = "Subject is required";
 
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email";
-    }
-
-    if (!formData.phone) {
-      newErrors.phone = "Phone is required";
-    } else if (!/^[0-9]{10}$/.test(formData.phone)) {
-      newErrors.phone = "Enter valid 10 digit number";
-    }
-
-    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
-
-    if (!formData.message.trim()) newErrors.message = "Message is required";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    if (!form.message.trim()) e.message = "Message is required";
+    return e;
   };
 
-  // ✅ Handle Change
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value); // 👈 ADD THIS
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
+    setForm((p) => ({ ...p, [name]: value }));
+    if (errors[name]) setErrors((p) => ({ ...p, [name]: "" }));
   };
+
+  const [loading, setLoading] = useState(false);
+  const [userName, setUserName] = useState("");
 
   // ✅ Submit
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) return;
+    if (loading) return;
+
+    const validationErrors = validate();
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) return;
 
     try {
-      const payload = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        subject: formData.subject,
-        message: formData.message,
-      };
+      setLoading(true);
 
-      const res = await postRequest({ url: `contact`, cred: payload });
+      const res = await postRequest({
+        url: "contact",
+        cred: form,
+      });
 
-      console.log("API RESPONSE:", res);
+      // ✅ Handle both axios + custom backend response
+      const success =
+        res?.status === 200 ||
+        res?.status === 201 ||
+        res?.data?.statusCode === 201;
 
-      if (res?.statusCode === 201 || res?.success) {
-        toast.success(res?.message || "Message sent successfully!");
-
+      if (success) {
+        setUserName(form.name); // 👈 name preserve
         setSubmitted(true);
 
-        setFormData({
+        setForm({
           name: "",
           email: "",
           phone: "",
           subject: "",
           message: "",
         });
+
+        setErrors({});
+
+        toast.success(res?.data?.message || "Request submitted successfully");
       } else {
-        // 🔴 Handle specific status codes
-        if (res?.statusCode === 409) {
-          toast.error(res?.message || "You already submitted this enquiry");
-        } else if (res?.statusCode === 400) {
-          toast.error(res?.message || "Invalid data");
-        } else if (res?.statusCode === 500) {
-          toast.error(res?.message || "Server error, please try later");
-        } else {
-          toast.error(res?.message || "Something went wrong");
-        }
+        throw new Error(res?.data?.message || "Something went wrong");
       }
-    } catch (error) {
-      console.error(error);
-      // toast.error( "Server error, please try again");
+    } catch (err) {
+      toast.error(
+        err?.response?.data?.message || err?.message || "Something went wrong",
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-yellow-50">
       {/* Banner */}
+      <Helmet>
+        <title>
+          Contact Us | Star India Energy Solutions – Get Free Solar Quote
+        </title>
+        <meta
+          name="description"
+          content="Contact Star India Energy Solutions for a free solar consultation. Call +91 9076734825 or visit us at Gomti Nagar, Lucknow. Get a free solar quote today."
+        />
+        <meta
+          name="keywords"
+          content="contact Star India Energy Solutions, solar consultation India, free solar quote, solar company Lucknow, solar panel inquiry, solar installation contact"
+        />
+        <link rel="canonical" href="https://www.starindiaenergy.com/contact" />
+        <meta
+          property="og:title"
+          content="Contact Us | Star India Energy Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Get a free solar consultation. Call +91 9076734825 or visit Gomti Nagar, Lucknow."
+        />
+        <meta
+          property="og:url"
+          content="https://www.starindiaenergy.com/contact"
+        />
+      </Helmet>
       <PageBanner />
 
       <div className="w-full lg:w-[85%] md:w-[85%] 2xl:w-[85%]  mx-auto px-4 py-12 md:py-20">
@@ -165,7 +175,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-12 ">
           {contactData.map((item, idx) => (
             <div
               key={idx}
@@ -226,13 +236,15 @@ export default function Contact() {
         </div>
 
         {/* FORM + IMAGE */}
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid 2xl:grid-cols-2 xl:grid-cols-1 lg:grid-cols-1 md:grid-cols-1 gap-10 items-center ">
           {/* LEFT IMAGE */}
           <div className="relative rounded-3xl overflow-hidden shadow-xl">
             <img
               src={contactImg}
-              alt="Contact"
+              alt="Contact Star India Energy Solutions for solar consultation"
               className="w-full h-full object-cover min-h-[400px]"
+              loading="lazy"
+              decoding="async"
             />
 
             <div className="absolute inset-0 bg-black/40"></div>
@@ -251,105 +263,159 @@ export default function Contact() {
                 <h3 className="text-xl font-bold text-green-600">
                   Message Sent!
                 </h3>
+                <p className="text-gray-500 text-sm max-w-xs">
+                  Thank you, <strong>{userName}</strong>! Our team will contact
+                  you shortly.
+                </p>
               </div>
             ) : (
               <form className="space-y-5" onSubmit={handleSubmit}>
                 {/* 🔹 Heading */}
                 <div className="mb-4">
                   <h2 className="text-2xl md:text-3xl font-semibold text-[#008235]">
-                    Send us a Message
+                    Request a Solar Consultation
                   </h2>
                   <p className="text-gray-500 text-sm mt-1">
-                    We’ll get back to you as soon as possible
+                    Share your requirements and our experts will recommend the
+                    best solar solution
                   </p>
                 </div>
 
                 {/* Name */}
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full border border-gray-200 p-3 rounded-xl 
-focus:outline-none focus:ring-2 focus:ring-[#008235] 
-focus:border-[#008235]
- transition"
-                />
-                {errors.name && (
-                  <p className="text-[#e5792b] text-sm">{errors.name}</p>
-                )}
-
-                {/* Email + Phone */}
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-sm font-medium text-gray-700 mb-1 block">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
                   <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
+                    type="text"
+                    name="name"
+                    placeholder="Enter your full name"
+                    value={form.name}
                     onChange={handleChange}
                     className="w-full border border-gray-200 p-3 rounded-xl 
-focus:outline-none focus:ring-2 focus:ring-[#2c408c] 
-focus:border-[#2c408c] transition"
+focus:outline-none focus:ring-2 focus:ring-[#008235] 
+focus:border-[#008235] transition"
                   />
-                  {errors.email && (
-                    <p className="text-[#e5792b] text-sm">{errors.email}</p>
-                  )}
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone"
-                    value={formData.phone}
-                    onChange={(e) => {
-                      const value = e.target.value.replace(/\D/g, ""); // only digits
-                      handleChange({ target: { name: "phone", value } });
-                    }}
-                    className="w-full border border-gray-200 p-3 rounded-xl 
-focus:outline-none focus:ring-2 focus:ring-[#2c408c] 
-focus:border-[#2c408c] transition"
-                  />
-                  {errors.phone && (
-                    <p className="text-[#e5792b] text-sm">{errors.phone}</p>
+                  {errors.name && (
+                    <p className="text-[#e5792b] text-sm mt-1">{errors.name}</p>
                   )}
                 </div>
 
+                {/* Email + Phone */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">
+                      Email Address{" "}
+                      <span className="text-gray-400">(Optional)</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="you@example.com"
+                      value={form.email}
+                      onChange={handleChange}
+                      className="w-full border border-gray-200 p-3 rounded-xl 
+focus:outline-none focus:ring-2 focus:ring-[#008235] 
+focus:border-[#008235] transition"
+                    />
+                    {errors.email && (
+                      <p className="text-[#e5792b] text-sm mt-1">
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">
+                      Mobile Number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Enter 10-digit mobile number"
+                      value={form.phone}
+                      maxLength={10}
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, "");
+                        if (value.length <= 10) {
+                          setForm((prev) => ({
+                            ...prev,
+                            phone: value,
+                          }));
+                        }
+                      }}
+                      className="w-full border border-gray-200 p-3 rounded-xl 
+focus:outline-none focus:ring-2 focus:ring-[#008235] 
+focus:border-[#008235] transition"
+                    />
+                    {errors.phone && (
+                      <p className="text-[#e5792b] text-sm mt-1">
+                        {errors.phone}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
                 {/* Subject */}
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full border border-gray-200 p-3 rounded-xl 
-focus:outline-none focus:ring-2 focus:ring-[#2c408c] 
-focus:border-[#2c408c] transition"
-                />
-                {errors.subject && (
-                  <p className="text-[#e5792b] text-sm">{errors.subject}</p>
-                )}
+                <div>
+                  <label className="text-sm font-medium text-gray-700 mb-1 block">
+                    Service Requirement <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="e.g. Rooftop Solar, Commercial, Maintenance"
+                    value={form.subject}
+                    onChange={handleChange}
+                    className="w-full border border-gray-200 p-3 rounded-xl 
+focus:outline-none focus:ring-2 focus:ring-[#008235] 
+focus:border-[#008235] transition"
+                  />
+                  {errors.subject && (
+                    <p className="text-[#e5792b] text-sm mt-1">
+                      {errors.subject}
+                    </p>
+                  )}
+                </div>
 
                 {/* Message */}
-                <textarea
-                  name="message"
-                  rows="4"
-                  placeholder="Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full border border-gray-200 p-3 rounded-xl 
-focus:outline-none focus:ring-2 focus:ring-[#2c408c] 
-focus:border-[#2c408c] transition"
-                />
-                {errors.message && (
-                  <p className="text-[#e5792b] text-sm">{errors.message}</p>
-                )}
+                <div>
+                  <label className="text-sm font-medium text-gray-700 mb-1 block">
+                    Project Details <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="message"
+                    rows="4"
+                    placeholder="Location, property type, electricity bill, required capacity (kW), etc."
+                    value={form.message}
+                    onChange={handleChange}
+                    className="w-full border border-gray-200 p-3 rounded-xl 
+focus:outline-none focus:ring-2 focus:ring-[#008235] 
+focus:border-[#008235] transition"
+                  />
+                  {errors.message && (
+                    <p className="text-[#e5792b] text-sm mt-1">
+                      {errors.message}
+                    </p>
+                  )}
+                </div>
 
                 {/* Button */}
                 <button
                   type="submit"
-                  className="w-full bg-[#008235] text-white py-3 rounded-xl hover:bg-[#006b2c]"
+                  disabled={loading}
+                  className="w-full bg-[#008235] text-white py-3 rounded-xl hover:bg-[#006b2c] transition"
                 >
-                  Send Message
+                  {loading ? "Submitting Request..." : "Get Free Solar Quote"}
                 </button>
+
+                {/* Trust Line */}
+                <p className="text-center text-xs text-gray-400">
+                  Our team will contact you within 24 hours. Your information is
+                  secure with us.
+                </p>
               </form>
             )}
           </div>
@@ -364,6 +430,7 @@ focus:border-[#2c408c] transition"
         style={{ border: 0 }}
         loading="lazy"
       ></iframe>
+      <MobileCTA />
     </div>
   );
 }

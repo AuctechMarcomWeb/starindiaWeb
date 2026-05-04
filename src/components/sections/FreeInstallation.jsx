@@ -164,7 +164,9 @@ export default function FreeInstallation() {
       <div className="w-full lg:max-w-[1055px] lg:-ml-[190px] mt-6 lg:mt-0">
         <img
           src={installationImg}
-          alt="Free Installation"
+          alt="Free solar panel installation service"
+          loading="lazy"
+          decoding="async"
           className="w-full h-auto object-cover"
         />
       </div>

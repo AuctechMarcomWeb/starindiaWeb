@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import PageBanner from "../../components/sections/PageBanner";
 import FreeInstallation from "../../components/sections/FreeInstallation";
 import FadeIn from "../../components/sections/FadeIn";
@@ -37,6 +38,7 @@ import serviceSolBg from "../../assets/images/service-solutions/service-solution
 import serviceSolImg1 from "../../assets/images/service-solutions/service-solutions-img1.png";
 import serviceSolImg2 from "../../assets/images/service-solutions/service-solutions-img2.png";
 import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
+import MobileCTA from "../../components/sections/MobileCTA";
 
 // ── Static Data ──
 const benefits = [
@@ -126,6 +128,36 @@ const SectionTag = ({ children }) => (
 const Solarpump = () => {
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
+      <Helmet>
+        <title>
+          Solar Water Pump | Solar Agriculture Pump – Star India Energy
+          Solutions
+        </title>
+        <meta
+          name="description"
+          content="Install solar water pumps for agriculture and irrigation with Star India Energy Solutions. Zero electricity cost, government subsidy available. Best solar pump installer in India."
+        />
+        <meta
+          name="keywords"
+          content="solar water pump India, solar agriculture pump, solar irrigation pump, solar pump for farming, solar submersible pump India, PM KUSUM solar pump, Star India Energy Solutions"
+        />
+        <link
+          rel="canonical"
+          href="https://www.starindiaenergy.com/services/pump"
+        />
+        <meta
+          property="og:title"
+          content="Solar Water Pump | Star India Energy Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Zero-cost solar water pumps for agriculture. Government subsidy available. Best solar pump installer in India."
+        />
+        <meta
+          property="og:url"
+          content="https://www.starindiaenergy.com/services/pump"
+        />
+      </Helmet>
       <PageBanner />
 
       {/* ══════════════════════════════════════
@@ -141,8 +173,8 @@ const Solarpump = () => {
             <div>
               {/* <SectionTag>Solar Pump Solution</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Solar Pump Solution
-          </span>
+                Solar Pump Solution
+              </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-4">
                 Reliable Water Pumping with{" "}
                 <span className="text-[#008235]">Solar Energy</span>
@@ -233,8 +265,8 @@ const Solarpump = () => {
               <div>
                 {/* <SectionTag>Key Benefits</SectionTag> */}
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Key Benefits
-          </span>
+                  Key Benefits
+                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   Why Choose an{" "}
                   <span className="text-[#008235]">a Solar Pump System?</span>
@@ -277,8 +309,8 @@ const Solarpump = () => {
             <div className="text-center mb-10 md:mb-14">
               {/* <SectionTag>Our Process</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Our Process
-          </span>
+                Our Process
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
                 How We Deliver Your Solar Pump Solution
               </h2>
@@ -328,8 +360,8 @@ const Solarpump = () => {
                 {/* <SectionTag>Challenges & Limitations</SectionTag> */}
 
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Challenges & Limitations
-          </span>
+                  Challenges & Limitations
+                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                   Things to Know Before{" "}
                   <span className="text-[#e5792b]">
@@ -381,8 +413,8 @@ const Solarpump = () => {
             <div className="text-center mb-10 md:mb-14">
               {/* <SectionTag>What We Offer</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            What We Offer
-          </span>
+                What We Offer
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Complete Atta Chakki Packages
               </h2>
@@ -463,6 +495,7 @@ const Solarpump = () => {
       </section>
 
       <FreeInstallation />
+      <MobileCTA />
     </div>
   );
 };
