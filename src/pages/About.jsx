@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet";
 import {
   CheckCircle,
   Sun,
@@ -20,6 +21,7 @@ import {
 } from "lucide-react";
 import PageBanner from "../components/sections/PageBanner";
 import FreeInstallation from "../components/sections/FreeInstallation";
+import MobileCTA from "../components/sections/MobileCTA";
 
 /* ─────────── useInView Hook ─────────── */
 const useInView = (threshold = 0.1) => {
@@ -100,6 +102,33 @@ export default function ProfessionalAboutPage() {
         }
         .text-gradient { background: linear-gradient(to right, #e5792b, #008235); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
       `}</style>
+
+      <Helmet>
+        <title>
+          About Us | Star India Energy Solutions – Trusted Solar Company
+        </title>
+        <meta
+          name="description"
+          content="Learn about Star India Energy Solutions – 10+ years of solar expertise, 500+ happy clients, 1200+ projects completed across 12+ states. MNRE approved solar installer in India."
+        />
+        <meta
+          name="keywords"
+          content="about Star India Energy Solutions, solar company India, MNRE approved solar installer, trusted solar company, solar energy experts India, solar installation company Lucknow"
+        />
+        <link rel="canonical" href="https://www.starindiaenergy.com/about" />
+        <meta
+          property="og:title"
+          content="About Us | Star India Energy Solutions"
+        />
+        <meta
+          property="og:description"
+          content="10+ years of solar expertise, 500+ happy clients, 1200+ projects. MNRE approved solar installer across India."
+        />
+        <meta
+          property="og:url"
+          content="https://www.starindiaenergy.com/about"
+        />
+      </Helmet>
 
       <PageBanner />
 
@@ -205,6 +234,8 @@ export default function ProfessionalAboutPage() {
                   src="https://plus.unsplash.com/premium_photo-1679607691186-4550451e13b7?q=80&w=415&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   alt="Star India Modern Solar Array"
+                  loading="eager"
+                  fetchpriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
               </div>
@@ -216,6 +247,8 @@ export default function ProfessionalAboutPage() {
                   src="https://plus.unsplash.com/premium_photo-1682148205811-e8a8ce759f4b?q=80&w=653&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   alt="Expert Technical Installation"
+                  loading="lazy"
+                  decoding="async"
                 />
                 {/* Status Badge */}
                 <div className="absolute top-6 right-6 bg-[#008235] text-white py-2 px-4 rounded-full shadow-lg flex items-center gap-2">
@@ -380,6 +413,9 @@ export default function ProfessionalAboutPage() {
               <img
                 src={IMGS.mission}
                 className="rounded-3xl shadow-2xl relative z-10"
+                alt="Star India Energy Solutions mission - clean solar energy"
+                loading="lazy"
+                decoding="async"
               />
 
               {/* BADGE FIX */}
@@ -478,6 +514,9 @@ export default function ProfessionalAboutPage() {
               <img
                 src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800"
                 className="rounded-3xl shadow-2xl"
+                alt="Solar powered future - Star India Energy vision"
+                loading="lazy"
+                decoding="async"
               />
 
               <div className="absolute -top-8 -left-8 bg-green-600 text-white p-4 rounded-3xl shadow-xl hidden lg:block">
@@ -495,7 +534,7 @@ export default function ProfessionalAboutPage() {
           {/* LEFT IMAGE */}
           <FadeIn direction="left">
             <div className="relative">
-              <img src={IMGS.welcome} className="rounded-3xl shadow-2xl" />
+              <img src={IMGS.welcome} className="rounded-3xl shadow-2xl" alt="Tier-1 solar components quality assurance" loading="lazy" decoding="async" />
 
               <div className="absolute -bottom-8 -right-8 bg-blue-600 text-white p-4 rounded-3xl shadow-xl hidden lg:block">
                 <div className="text-2xl font-black">Tier-1</div>
@@ -568,6 +607,7 @@ export default function ProfessionalAboutPage() {
       </section> */}
 
       <FreeInstallation />
+      <MobileCTA />
     </div>
   );
 }

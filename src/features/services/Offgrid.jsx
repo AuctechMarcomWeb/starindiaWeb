@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import PageBanner from "../../components/sections/PageBanner";
 import FreeInstallation from "../../components/sections/FreeInstallation";
 import FadeIn from "../../components/sections/FadeIn";
@@ -28,6 +29,7 @@ import serviceSolBg from "../../assets/images/service-solutions/service-solution
 import serviceSolImg1 from "../../assets/images/service-solutions/service-solutions-img1.png";
 import serviceSolImg2 from "../../assets/images/service-solutions/service-solutions-img2.png";
 import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
+import MobileCTA from "../../components/sections/MobileCTA";
 
 // ── Static Data ──
 const benefits = [
@@ -119,6 +121,33 @@ const SectionTag = ({ children }) => (
 const Offgrid = () => {
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
+      <Helmet>
+        <title>Off-Grid Solar System | Star India Energy Solutions</title>
+        <meta
+          name="description"
+          content="Get complete energy independence with off-grid solar systems from Star India Energy Solutions. Ideal for remote areas, farms, and locations without grid access. Battery backup included."
+        />
+        <meta
+          name="keywords"
+          content="off-grid solar system India, solar battery backup, standalone solar system, solar for remote areas, off-grid solar installation, solar energy without grid, Star India Energy"
+        />
+        <link
+          rel="canonical"
+          href="https://www.starindiaenergy.com/services/off-grid"
+        />
+        <meta
+          property="og:title"
+          content="Off-Grid Solar System | Star India Energy Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Complete energy independence with off-grid solar and battery backup. Ideal for remote areas and farms."
+        />
+        <meta
+          property="og:url"
+          content="https://www.starindiaenergy.com/services/off-grid"
+        />
+      </Helmet>
       <PageBanner />
 
       {/* ══════════════════════════════════════
@@ -134,8 +163,8 @@ const Offgrid = () => {
             <div>
               {/* <SectionTag>What Is Off-Grid Solar?</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            What Is Off-Grid Solar
-          </span>
+                What Is Off-Grid Solar
+              </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-4">
                 Complete Energy Independence for{" "}
                 <span className="text-[#008235]">Homes & Remote Sites</span>
@@ -227,8 +256,8 @@ const Offgrid = () => {
               <div>
                 {/* <SectionTag>Key Benefits</SectionTag> */}
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Key Benefits
-          </span>
+                  Key Benefits
+                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   Why Choose an{" "}
                   <span className="text-[#008235]">Off-Grid System?</span>
@@ -271,8 +300,8 @@ const Offgrid = () => {
             <div className="text-center mb-10 md:mb-14">
               {/* <SectionTag>Our Process</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Our Process
-          </span>
+                Our Process
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
                 How We Deliver Your Off-Grid Solution
               </h2>
@@ -321,8 +350,8 @@ const Offgrid = () => {
               <div>
                 {/* <SectionTag>Challenges & Limitations</SectionTag> */}
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Challenges & Limitations
-          </span>
+                  Challenges & Limitations
+                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                   Things to Know Before You{" "}
                   <span className="text-[#e5792b]">Go Off-Grid</span>
@@ -372,8 +401,8 @@ const Offgrid = () => {
             <div className="text-center mb-10 md:mb-14">
               {/* <SectionTag>What We Offer</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            What We Offer
-          </span>
+                What We Offer
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Complete Off-Grid Solar Packages
               </h2>
@@ -453,9 +482,8 @@ const Offgrid = () => {
         </div>
       </section>
 
-     
-
       <FreeInstallation />
+      <MobileCTA />
     </div>
   );
 };

@@ -19,6 +19,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import PageBanner from "../components/sections/PageBanner";
 import { getRequest } from "../Helpers/index";
 import OtherBlog from "./OtherBlog";
+import MobileCTA from "../components/sections/MobileCTA";
 
 const BlogDetail = ({ updateSignal }) => {
   const { url } = useParams();
@@ -27,7 +28,6 @@ const BlogDetail = ({ updateSignal }) => {
   const [loading, setLoading] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
-console.log("PARAM URL:", url);
 
   // FETCH BLOG
   const fetchBlog = async () => {
@@ -131,8 +131,10 @@ const res = await getRequest(`blogs/${url}`);
             <div className="lg:col-span-8">
               <img
                 src={blog?.mainImage}
-                alt={blog?.heading}
+                alt={blog?.heading || "Blog post image"}
                 className="w-full h-[260px] sm:h-[360px] lg:h-[420px] object-cover rounded-2xl mb-6"
+                loading="eager"
+                fetchpriority="high"
               />
 
               {/* META */}
@@ -158,7 +160,7 @@ const res = await getRequest(`blogs/${url}`);
             </div>
 
             {/* RIGHT */}
-            <OtherBlog currentBlogId={blog?.url} /> 
+            <OtherBlog currentBlogId={blog?.url} />
           </div>
 
           {/* SHARE */}
@@ -173,17 +175,6 @@ const res = await getRequest(`blogs/${url}`);
                 </div>
                 Share this article
               </h3>
-
-              <div className="flex gap-3">
-                {[FaFacebook, FaInstagram, FaLinkedin].map((Icon, i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 flex items-center justify-center border border-[#008235] rounded-full hover:bg-[#008235] group cursor-pointer"
-                  >
-                    <Icon className="text-[#008235] group-hover:text-white" />
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* MODAL */}
@@ -231,6 +222,7 @@ const res = await getRequest(`blogs/${url}`);
             )}
           </div>
         </section>
+        <MobileCTA />
       </div>
     </>
   );

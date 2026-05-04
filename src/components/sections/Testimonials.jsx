@@ -66,7 +66,9 @@ function TestimonialCard({ item }) {
             item.profileImage ||
             "https://res.cloudinary.com/dtguimwsu/image/upload/v1766470898/kjfwaxhehxbafkh6rqax.png"
           }
-          alt={item.title}
+          alt={item.title || "Customer testimonial"}
+          loading="lazy"
+          decoding="async"
           className={`
             w-11 h-11 rounded-full object-cover flex-shrink-0 border-2
             transition-colors duration-300
@@ -130,13 +132,12 @@ export default function Testimonial() {
 
    getRequest(`testimonials?${query}`)
      .then((res) => {
-        console.log("Fetched Testimonials:", res);
          const data = res?.data?.data?.testimonials || [];
          setTestimonials(data);
          setTotal(res?.data?.data?.totalTestimonials || 0);
      })
      .catch((error) => {
-       console.log("error", error);
+       if (import.meta.env.DEV) console.error("Testimonials error:", error);
        setTestimonials([]);
      })
      .finally(() => setLoading(false));

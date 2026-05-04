@@ -155,16 +155,17 @@ const CustomCursor = () => {
           50% { transform: scale(1.15); opacity: 0.7; }
         }
 
-        .cursor-dot.cursor-footer {
-          background: #ffffff;
-        }
+       .cursor-dot.cursor-footer {
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
 
-        .cursor-ring.ring-footer {
-          border-color: #ffffff;
-          background: rgba(255,255,255,0.08);
-          width: 50px;
-          height: 50px;
-        }
+.cursor-ring.ring-footer {
+  border-color: #ffffff;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(4px);
+}
+
       `}</style>
 
       <div ref={dotRef} className="cursor-dot" />

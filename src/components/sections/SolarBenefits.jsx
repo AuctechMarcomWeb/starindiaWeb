@@ -33,7 +33,9 @@ export default function SolarBenefits() {
         <div className="w-full lg:w-1/2">
           <img
             src={benefit}
-            alt="Solar Benefits"
+            alt="Solar energy benefits - save electricity with solar panels"
+            loading="lazy"
+            decoding="async"
             className="w-full h-auto rounded-xl object-cover "
           />
         </div>

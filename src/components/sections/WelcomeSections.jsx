@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import aboutImg from "../../assets/images/about/about-right-img.png";
 import { Phone } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const WelcomeSections = () => {
   useEffect(() => {
     const elements = document.querySelectorAll(".animate-on-scroll");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -20,6 +20,8 @@ const WelcomeSections = () => {
     elements.forEach((el) => observer.observe(el));
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <section className="relative bg-white py-10 md:py-20 overflow-hidden">
       <div className="container mx-auto w-full md:w-[85%] 2xl:w-[75%] px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-stretch">
@@ -28,12 +30,10 @@ const WelcomeSections = () => {
           <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
             About Star India Energy
           </span>
-
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2">
             Powering a Greener Future with at{" "}
             <span className="text-[#008235]">Smart Solar Solutions</span>
           </h2>
-
           <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-3 text-justify">
             At{" "}
             <span className="font-semibold text-green-700">
@@ -44,9 +44,6 @@ const WelcomeSections = () => {
             provide clean, reliable, and cost-effective energy solutions that
             help reduce electricity bills and dependency on traditional power
             sources.
-            {/* With a strong focus on quality, innovation, and customer
-            satisfaction, we offer end-to-end services including consultation,
-            system design, installation, and maintenance. */}
           </p>
           <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-3 text-justify">
             By choosing us, you’re not just installing solar panels — you’re
@@ -55,8 +52,8 @@ const WelcomeSections = () => {
             generations to come.
           </p>
 
-          {/* LIST */}
-          {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* FEATURES */}
+          <div className="hidden md:grid grid-cols-2 gap-3 sm:gap-4">
             {[
               ["Save Electricity Bills", 0],
               ["Eco-Friendly Energy", 100],
@@ -65,56 +62,28 @@ const WelcomeSections = () => {
               ["Fast Installation", 400],
               ["24x7 Customer Support", 500],
             ].map(([text, delay]) => (
-              <Feature
-                key={text}
-                text={text}
-                delay={delay}
-                visible={true} // 👈 yahan tum animation control kar sakte ho
-              />
+              <Feature key={text} text={text} delay={delay} visible={true} />
             ))}
-          </div> */}
+          </div>
 
           {/* BUTTON */}
-          {/* <div className="flex flex-wrap items-center gap-4">
-            <button className="bg-[#008235] hover:bg-[#e5792b] text-white px-6 py-3 rounded-md font-semibold transition-all duration-200 shadow-md hover:shadow-xl">
+          <div className="flex flex-wrap items-center justify-start mt-4 gap-4">
+            <button
+              onClick={() => navigate("/about")}
+              className="bg-[#008235] hover:bg-[#e5792b] text-white px-6 py-3 rounded-md font-semibold transition-all duration-200 shadow-md hover:shadow-xl"
+            >
               Explore More
             </button>
-          </div> */}
-
-
-
-          {/* FEATURES */}
-<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-2 gap-3 sm:gap-4">
-  {[
-    ["Save Electricity Bills", 0],
-    ["Eco-Friendly Energy", 100],
-    ["Government Subsidy Support", 200],
-    ["High Efficiency Panels", 300],
-    ["Fast Installation", 400],
-    ["24x7 Customer Support", 500],
-  ].map(([text, delay]) => (
-    <Feature
-      key={text}
-      text={text}
-      delay={delay}
-      visible={true}
-    />
-  ))}
-</div>
-
-{/* BUTTON */}
-<div className="flex flex-wrap items-center justify-center sm:justify-start mt-4">
-  <button className="bg-[#008235] hover:bg-[#e5792b] text-white px-6 py-3 rounded-md font-semibold transition-all duration-200 shadow-md hover:shadow-xl">
-    Explore More
-  </button>
-</div>
+          </div>
         </div>
 
         {/* RIGHT IMAGE (Slide from RIGHT) */}
         <div className="relative animate-on-scroll slide-right group h-full flex items-center justify-center">
           <img
             src={aboutImg}
-            alt="about"
+            alt="Star India Energy Solutions - About our solar company"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full max-h-[500px] object-cover rounded-lg transition duration-500 group-hover:scale-105"
           />
 

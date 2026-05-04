@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 
 import React, { useState } from "react";
@@ -19,6 +20,7 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+// const [userName, setUserName] = useState("");
 
   const validate = () => {
     const e = {};
@@ -38,46 +40,63 @@ const Contact = () => {
     setForm((p) => ({ ...p, [name]: value }));
     if (errors[name]) setErrors((p) => ({ ...p, [name]: "" }));
   };
+ const [userName, setUserName] = useState("");
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const e2 = validate();
+ const handleSubmit = async (e) => {
+   e.preventDefault();
 
-  if (Object.keys(e2).length) return setErrors(e2);
+   if (loading) return;
 
-  try {
-    setLoading(true);
+   const validationErrors = validate();
+   setErrors(validationErrors);
 
-    const payload = {
-      name: form.name,
-      phone: form.phone,
-      email: form.email,
-      subject: form.subject,
-      message: form.message,
-    };
+   if (Object.keys(validationErrors).length > 0) return;
 
-    // 👉 API call
-    const res = await postRequest({ url: `contact`, cred: payload });
+   try {
+     setLoading(true);
 
-    if (res?.success) {
-      setSubmitted(true);
-      setForm({
-        name: "",
-        phone: "",
-        email: "",
-        subject: "", // ✅ RESET THIS
-        message: "",
-      });
-    } else {
-      toast.success(res?.data?.message || "Contact message sent successfully");
-    }
-  } catch (err) {
-    console.error(err);
-    // toast.error("Server error, try again");
-  } finally {
-    setLoading(false);
-  }
-};
+     const res = await postRequest({
+       url: "contact",
+       cred: form,
+     });
+
+     // ✅ Handle both axios + custom backend response
+     const success =
+       res?.status === 200 ||
+       res?.status === 201 ||
+       res?.data?.statusCode === 201;
+
+     if (success) {
+       setUserName(form.name); // 👈 name preserve
+       setSubmitted(true);
+
+       setForm({
+         name: "",
+         email: "",
+         phone: "",
+         subject: "",
+         message: "",
+       });
+
+       setErrors({});
+
+       toast.success(res?.data?.message || "Request submitted successfully");
+     } else {
+       throw new Error(res?.data?.message || "Something went wrong");
+     }
+   } catch (err) {
+     toast.error(
+       err?.response?.data?.message || err?.message || "Something went wrong",
+     );
+   } finally {
+     setLoading(false);
+   }
+ };
+
+
+
+
+
 
   return (
     <section className="w-full bg-gray-50 py-10 sm:py-14 md:py-20 px-4 sm:px-6">
@@ -124,7 +143,9 @@ const handleSubmit = async (e) => {
             <div className="flex-1 overflow-hidden rounded-2xl shadow-lg">
               <img
                 src={contactImg}
-                alt="solar"
+                alt="Contact Star India Energy Solutions for solar consultation"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover min-h-[260px] md:min-h-[360px]"
               />
             </div>
@@ -185,7 +206,7 @@ const handleSubmit = async (e) => {
                 </h3>
 
                 <p className="text-gray-500 text-sm max-w-xs">
-                  Thank you, <strong>{form.name}</strong>! Our team will contact
+                  Thank you, <strong>{userName}</strong>! Our team will contact
                   you shortly.
                 </p>
 
@@ -222,7 +243,7 @@ const handleSubmit = async (e) => {
                 >
                   {/* Name */}
                   <div>
-                    <label className="block text-sm font-semibold text-gray-600 mb-1.5">
+                    <label className="block text-sm font-semibold text-gray-600 mb-2">
                       Full Name <span className="text-red-400">*</span>
                     </label>
                     <input
@@ -242,7 +263,7 @@ const handleSubmit = async (e) => {
                   {/* Email + Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-600 mb-1.5">
+                      <label className="block text-sm font-semibold text-gray-600 mb-2">
                         Email Address{" "}
                         <span className="text-gray-400 font-normal">
                           (Optional)
@@ -264,18 +285,29 @@ const handleSubmit = async (e) => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-600 mb-1.5">
+                      <label className="block text-sm font-semibold text-gray-600 mb-2">
                         Mobile Number <span className="text-red-400">*</span>
                       </label>
                       <input
                         className={`jj-input ${errors.phone ? "error" : ""}`}
                         name="phone"
                         value={form.phone}
-                        onChange={handleChange}
                         placeholder="9876543210"
                         maxLength={10}
                         inputMode="numeric"
+                        pattern="[0-9]*"
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\D/g, ""); // ✅ sirf digits
+
+                          if (value.length <= 10) {
+                            setForm((prev) => ({
+                              ...prev,
+                              phone: value,
+                            }));
+                          }
+                        }}
                       />
+
                       {errors.phone && (
                         <p className="text-red-500 text-[11px] mt-1">
                           {errors.phone}
@@ -286,15 +318,16 @@ const handleSubmit = async (e) => {
 
                   {/* Subject */}
                   <div>
-                    <label className="block text-sm font-semibold text-gray-600 mb-1.5">
-                      Subject <span className="text-red-400">*</span>
+                    <label className="block text-sm font-semibold text-gray-600 mb-2">
+                      Service Requirement{" "}
+                      <span className="text-red-400">*</span>
                     </label>
                     <input
                       className={`jj-input ${errors.subject ? "error" : ""}`}
                       name="subject"
                       value={form.subject}
                       onChange={handleChange}
-                      placeholder="Enter subject"
+                      placeholder="Enter service requirement"
                     />
                     {errors.subject && (
                       <p className="text-red-500 text-[11px] mt-1">
@@ -305,8 +338,8 @@ const handleSubmit = async (e) => {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-sm font-semibold text-gray-600 mb-1.5">
-                      Your Requirement <span className="text-red-400">*</span>
+                    <label className="block text-sm font-semibold text-gray-600 mb-2">
+                      Project Details <span className="text-red-400">*</span>
                     </label>
                     <textarea
                       className={`jj-input resize-none ${
@@ -315,8 +348,8 @@ const handleSubmit = async (e) => {
                       name="message"
                       value={form.message}
                       onChange={handleChange}
-                      rows={4}
-                      placeholder="Tell us about your solar requirement (home, commercial, kW, etc.)"
+                      rows={6}
+                      placeholder="Please describe your requirement (location, type of property, approximate load in kW, electricity bill, etc.)"
                     />
                     {errors.message && (
                       <p className="text-red-500 text-[11px] mt-1">
@@ -331,7 +364,7 @@ const handleSubmit = async (e) => {
                     disabled={loading}
                     className="w-full flex items-center justify-center gap-2 bg-[#008235] hover:bg-[#006d2c] disabled:opacity-70 text-white font-semibold text-sm py-3 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg mt-2"
                   >
-                    {loading ? (
+                    {/* {loading ? (
                       <>
                         <svg
                           className="w-4 h-4 animate-spin"
@@ -358,11 +391,12 @@ const handleSubmit = async (e) => {
                         <Send className="w-4 h-4" />
                         Get Free Quote
                       </>
-                    )}
+                    )} */}
+                    {loading ? "Sending request..." : "Get Free Quote"}
                   </button>
 
                   <p className="text-center text-[11px] text-gray-400">
-                    We respect your privacy. No spam guaranteed.
+                    We respect your privacy.
                   </p>
                 </form>
               </>

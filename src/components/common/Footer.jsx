@@ -24,13 +24,16 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-green-700 text-white pt-5 relative overflow-hidden">
+    <footer
+      className="bg-green-700 text-white pt-5 relative overflow-hidden"
+      data-cursor="footer"
+    >
       {/* Container */}
       <div className="w-full md:w-[85%] xl:w-[85%] mx-auto px-4 py-12 lg:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 text-left">
           {/* Logo + About */}
           <div className="fade-up opacity-0">
-            <img src={logo} className="w-32 mb-4" />
+            <img src={logo} className="w-32 mb-4" alt="solar logo" />
 
             <p className="text-sm leading-6 text-gray-300">
               Powering a sustainable future with innovative solar solutions.
@@ -41,16 +44,27 @@ const Footer = () => {
 
             {/* Social */}
             <div className="flex gap-3 pt-3 justify-start">
-              {[FaFacebook, FaInstagram, FaLinkedin, FaYoutube].map(
-                (Icon, i) => (
-                  <div
-                    key={i}
-                    className="w-9 h-9 flex items-center justify-center rounded-md bg-white/10 hover:bg-orange-400 hover:text-black transition-all duration-300 cursor-pointer"
-                  >
-                    <Icon size={16} />
-                  </div>
-                ),
-              )}
+              {[
+                {
+                  icon: FaFacebook,
+                  link: "https://www.facebook.com/starenergysolution",
+                },
+                {
+                  icon: FaInstagram,
+                  link: "https://www.instagram.com/starenergysolution/",
+                },
+              ].map(({ icon: Icon, link }, i) => (
+                <a
+                  key={i}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor="button" // ✅ ADD THIS
+                  className="w-9 h-9 flex items-center justify-center rounded-md bg-white/10 hover:bg-[#e5792b] hover:text-black transition-all duration-300 cursor-pointer"
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
 

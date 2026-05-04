@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import PageBanner from "../../components/sections/PageBanner";
 import FreeInstallation from "../../components/sections/FreeInstallation";
 import FadeIn from "../../components/sections/FadeIn";
@@ -37,6 +38,7 @@ import serviceSolBg from "../../assets/images/service-solutions/service-solution
 import serviceSolImg1 from "../../assets/images/service-solutions/service-solutions-img1.png";
 import serviceSolImg2 from "../../assets/images/service-solutions/service-solutions-img2.png";
 import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
+import MobileCTA from "../../components/sections/MobileCTA";
 
 // ── Static Data ──
 const benefits = [
@@ -125,6 +127,33 @@ const SectionTag = ({ children }) => (
 const Hybrid = () => {
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
+      <Helmet>
+        <title>Hybrid Solar System | Star India Energy Solutions</title>
+        <meta
+          name="description"
+          content="Get the best of both worlds with hybrid solar systems from Star India Energy Solutions. Grid-connected with battery backup – uninterrupted power 24/7. Ideal for homes and businesses."
+        />
+        <meta
+          name="keywords"
+          content="hybrid solar system India, solar with battery backup, hybrid solar installation, solar inverter battery India, 24/7 solar power, hybrid solar panel system, Star India Energy"
+        />
+        <link
+          rel="canonical"
+          href="https://www.starindiaenergy.com/services/hybrid"
+        />
+        <meta
+          property="og:title"
+          content="Hybrid Solar System | Star India Energy Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Grid-connected solar with battery backup. Uninterrupted 24/7 power for homes and businesses."
+        />
+        <meta
+          property="og:url"
+          content="https://www.starindiaenergy.com/services/hybrid"
+        />
+      </Helmet>
       <PageBanner />
 
       {/* ══════════════════════════════════════
@@ -140,8 +169,8 @@ const Hybrid = () => {
             <div>
               {/* <SectionTag>What Is Hybrid Solar?</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            What Is Hybrid Solar
-          </span>
+                What Is Hybrid Solar
+              </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-4">
                 Smart Energy Solution for{" "}
                 <span className="text-[#008235]">Maximum Savings & Backup</span>
@@ -232,8 +261,8 @@ const Hybrid = () => {
               <div>
                 {/* <SectionTag>Key Benefits</SectionTag> */}
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Key Benefits
-          </span>
+                  Key Benefits
+                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   Why Choose an{" "}
                   <span className="text-[#008235]">Hybrid System?</span>
@@ -277,8 +306,8 @@ const Hybrid = () => {
               {/* <SectionTag>Our Process</SectionTag> */}
 
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Our Process
-          </span>
+                Our Process
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
                 How We Deliver Your Off-Grid Solution
               </h2>
@@ -327,8 +356,8 @@ const Hybrid = () => {
               <div>
                 {/* <SectionTag>Challenges & Limitations</SectionTag> */}
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Challenges & Limitations
-          </span>
+                  Challenges & Limitations
+                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                   Things to Know Before You{" "}
                   <span className="text-[#e5792b]">Go Hybrid</span>
@@ -378,8 +407,8 @@ const Hybrid = () => {
             <div className="text-center mb-10 md:mb-14">
               {/* <SectionTag>What We Offer</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            What We Offer
-          </span>
+                What We Offer
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Complete Hybrid Solar Packages
               </h2>
@@ -387,40 +416,40 @@ const Hybrid = () => {
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-  {
-    img: offerImg1,
-    icon: offerIcon1,
-    title: "Residential Hybrid",
-    desc: "Perfect for homes needing backup and savings. Use solar during the day and battery during outages.",
-    points: [
-      "Power backup included",
-      "Lower electricity bills",
-      "Smart energy control",
-    ],
-  },
-  {
-    img: offerImg2,
-    icon: offerIcon2,
-    title: "Commercial Hybrid",
-    desc: "Ideal for offices and shops requiring uninterrupted operations and cost optimization.",
-    points: [
-      "Reduced downtime",
-      "Peak load management",
-      "Advanced monitoring",
-    ],
-  },
-  {
-    img: offerImg3,
-    icon: offerIcon3,
-    title: "Industrial Hybrid",
-    desc: "Designed for industries to ensure stable operations and reduce dependency on grid power.",
-    points: [
-      "High-capacity systems",
-      "Energy cost control",
-      "Reliable backup",
-    ],
-  },
-].map((card, i) => (
+              {
+                img: offerImg1,
+                icon: offerIcon1,
+                title: "Residential Hybrid",
+                desc: "Perfect for homes needing backup and savings. Use solar during the day and battery during outages.",
+                points: [
+                  "Power backup included",
+                  "Lower electricity bills",
+                  "Smart energy control",
+                ],
+              },
+              {
+                img: offerImg2,
+                icon: offerIcon2,
+                title: "Commercial Hybrid",
+                desc: "Ideal for offices and shops requiring uninterrupted operations and cost optimization.",
+                points: [
+                  "Reduced downtime",
+                  "Peak load management",
+                  "Advanced monitoring",
+                ],
+              },
+              {
+                img: offerImg3,
+                icon: offerIcon3,
+                title: "Industrial Hybrid",
+                desc: "Designed for industries to ensure stable operations and reduce dependency on grid power.",
+                points: [
+                  "High-capacity systems",
+                  "Energy cost control",
+                  "Reliable backup",
+                ],
+              },
+            ].map((card, i) => (
               <FadeIn key={card.title} direction="up" delay={i * 120}>
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                   <div className="relative overflow-hidden">
@@ -460,6 +489,7 @@ const Hybrid = () => {
       </section>
 
       <FreeInstallation />
+      <MobileCTA/>
     </div>
   );
 };

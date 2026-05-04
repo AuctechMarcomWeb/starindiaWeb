@@ -146,6 +146,8 @@ function StepCard({ item, index, isLast, visible, activeStep, setActiveStep }) {
         <img
           src={item.image}
           alt={item.title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover rounded-full transition-all duration-500"
           style={{
             transform: isActive ? "scale(1.12)" : "scale(1)",

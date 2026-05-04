@@ -11,7 +11,7 @@ const MissionSection = () => {
     <section className="py-24 px-4">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <FadeIn direction="left">
-          <img src={IMGS.mission} className="rounded-3xl shadow-2xl" />
+          <img src={IMGS.mission} className="rounded-3xl shadow-2xl" alt="Star India Energy Solutions mission - pure reliable solar energy" loading="lazy" decoding="async" />
         </FadeIn>
 
         <FadeIn direction="right">

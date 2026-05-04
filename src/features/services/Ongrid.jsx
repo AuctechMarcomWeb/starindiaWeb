@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import PageBanner from "../../components/sections/PageBanner";
 import FreeInstallation from "../../components/sections/FreeInstallation";
 import FadeIn from "../../components/sections/FadeIn";
@@ -31,6 +32,7 @@ import serviceSolImg2 from "../../assets/images/service-solutions/service-soluti
 import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
 import serviceSolImg4 from "../../assets/images/service-solutions/service-solutions-img4.png";
 import ongrid from "../../assets/images/solar-benefits/ongrid.jpg"
+import MobileCTA from "../../components/sections/MobileCTA";
 // ── Static Data ──
 const benefits = [
   { icon: <DollarSign className="w-6 h-6" />, title: "Zero Electricity Bills", desc: "Export surplus power to the grid and earn credits — drastically cut or eliminate your monthly electricity bill." },
@@ -75,6 +77,33 @@ const SectionTag = ({ children }) => (
 const Ongrid = () => {
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
+      <Helmet>
+        <title>On-Grid Solar System | Star India Energy Solutions</title>
+        <meta
+          name="description"
+          content="Install an on-grid solar system with Star India Energy Solutions. Connect to the grid, earn through net metering, and save up to 80% on electricity bills. MNRE approved installer."
+        />
+        <meta
+          name="keywords"
+          content="on-grid solar system India, grid-tied solar panel, net metering solar, rooftop solar grid connection, on-grid solar installation, solar net metering India, Star India Energy"
+        />
+        <link
+          rel="canonical"
+          href="https://www.starindiaenergy.com/services/on-grid"
+        />
+        <meta
+          property="og:title"
+          content="On-Grid Solar System | Star India Energy Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Grid-tied solar systems with net metering. Save up to 80% on electricity bills."
+        />
+        <meta
+          property="og:url"
+          content="https://www.starindiaenergy.com/services/on-grid"
+        />
+      </Helmet>
       <PageBanner />
 
       {/* ══════════════════════════════════════
@@ -89,9 +118,9 @@ const Ongrid = () => {
           >
             <div>
               {/* <SectionTag>What Is On-Grid Solar?</SectionTag> */}
-<span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            About Star India Energy
-          </span>
+              <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
+                About Star India Energy
+              </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-4">
                 Grid-Connected Solar Power for{" "}
                 <span className="text-[#008235]">Homes & Businesses</span>
@@ -147,18 +176,24 @@ const Ongrid = () => {
               <img
                 src={singleService1}
                 alt="On-Grid solar installation"
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl w-full h-full object-cover col-span-2 min-h-[180px] sm:min-h-[220px] lg:min-h-[260px]"
               />
 
               <img
                 src={singleService2}
                 alt="Solar panels on rooftop"
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl w-full h-full object-cover min-h-[140px] sm:min-h-[160px]"
               />
 
               <img
                 src={singleService3}
                 alt="Grid-tie inverter"
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl w-full h-full object-cover min-h-[140px] sm:min-h-[160px]"
               />
             </div>
@@ -191,7 +226,8 @@ const Ongrid = () => {
               <div>
                 {/* <SectionTag>Key Benefits</SectionTag> */}
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Key Benefits          </span>
+                  Key Benefits{" "}
+                </span>
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   Why Choose an{" "}
@@ -238,8 +274,8 @@ const Ongrid = () => {
             <div className="text-center mb-10 md:mb-14">
               {/* <SectionTag>Our Process</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Our Process
-          </span>
+                Our Process
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
                 How We Deliver Your On-Grid Solution
               </h2>
@@ -289,8 +325,8 @@ const Ongrid = () => {
               <div>
                 {/* <SectionTag>Challenges & Limitations</SectionTag> */}
                 <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            Challenges & Limitations
-          </span>
+                  Challenges & Limitations
+                </span>
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                   Things to Know Before You{" "}
@@ -346,8 +382,8 @@ const Ongrid = () => {
             <div className="text-center mb-10 md:mb-14">
               {/* <SectionTag>What We Offer</SectionTag> */}
               <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
-            What We Offer
-          </span>
+                What We Offer
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Complete On-Grid Solar Packages
               </h2>
@@ -428,6 +464,7 @@ const Ongrid = () => {
       </section>
 
       <FreeInstallation />
+      <MobileCTA/>
     </div>
   );
 };
