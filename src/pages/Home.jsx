@@ -16,26 +16,24 @@ const Home = () => {
     <main className="home-page">
       <Helmet>
         <title>
-          Star India Energy Solutions | Best Solar Panel Installation in India
+          Star India Energy Solutions | Solar Panel Lucknow | MNRE EMI Option
         </title>
         <meta
           name="description"
-          content="Star India Energy Solutions – India's leading solar company. Get on-grid, off-grid & hybrid solar panel installation, solar water pumps, and solar atta chakki. Save up to 80% on electricity bills."
+          content="Star India Energy Solutions – Lucknow's trusted solar company. MNRE approved panels, easy EMI options including MNRF financing. On-grid, off-grid & hybrid solar installation in Lucknow, UP."
         />
         <meta
           name="keywords"
-          content="solar panel installation India, best solar company India, rooftop solar system, on-grid solar, off-grid solar, hybrid solar, solar water pump, solar atta chakki, solar subsidy India, solar energy Lucknow, Star India Energy Solutions"
+          content="MNRE EMI option Lucknow, MNRF solar EMI Lucknow, solar panel installation Lucknow, best solar company Lucknow, solar energy Lucknow, MNRE approved solar panels, solar EMI Lucknow, on-grid solar Lucknow, off-grid solar Lucknow, hybrid solar Lucknow, solar water pump Lucknow, solar atta chakki Lucknow, Star India Energy Solutions"
         />
-        <link rel="canonical" href="https://www.starindiaenergy.com/" />
         <meta
           property="og:title"
-          content="Star India Energy Solutions | Best Solar Panel Installation in India"
+          content="Star India Energy Solutions | Solar Panel Lucknow | MNRE EMI Option"
         />
         <meta
           property="og:description"
-          content="India's leading solar company. On-grid, off-grid & hybrid solar systems. Save up to 80% on electricity bills."
+          content="Lucknow's trusted solar company. MNRE approved panels, easy EMI & MNRF financing. On-grid, off-grid & hybrid solar systems in Lucknow, UP."
         />
-        <meta property="og:url" content="https://www.starindiaenergy.com/" />
       </Helmet>
       <HeroSections />
       <WelcomeSections />
