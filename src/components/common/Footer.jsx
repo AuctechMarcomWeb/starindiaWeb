@@ -144,15 +144,13 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://www.google.com/maps?ll=26.863692,80.997792&z=13&t=m&hl=en&gl=IN&mapclient=embed&cid=15286058874902622042"
+                href="https://www.google.com/maps/place/1%2F352,+Fims+College+Rd,+Vibhav+Khand,+Gomti+Nagar,+Lucknow,+Uttar+Pradesh+226010/@26.863242,81.0170016,18z/data=!4m6!3m5!1s0x399be2ed25daa0ab:0x24be2d86fc0f624!8m2!3d26.86312!4d81.017876!16s%2Fg%2F11g7kl3x64?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex gap-2 items-start hover:text-orange-400 transition"
               >
                 <MapPin size={16} className="text-orange-400" />
-                <span>
-                  D-222 UGF Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010
-                </span>
+                <span>1/352 Vibhav Khand Gomti Nagar Lucknow 226010</span>
               </a>
             </div>
           </div>

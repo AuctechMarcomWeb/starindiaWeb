@@ -11,7 +11,8 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import PageBanner from "../components/sections/PageBanner";
-import contactImg from "../assets/images/about/about-page-img1.png"; // 👉 apni image
+// import contactImg from "../assets/images/about/about-page-img1.png"; 
+import contactImg from "../assets/New folder/last image.jpg";
 import { FaWhatsapp } from "react-icons/fa";
 import { postRequest } from "../Helpers/index";
 import MobileCTA from "../components/sections/MobileCTA";
@@ -53,8 +54,8 @@ export default function Contact() {
       icon: MapPin,
       title: "Visit Us",
       info: {
-        text: "D-222 UGF Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010",
-        link: "https://www.google.com/maps?ll=26.863692,80.997792&z=13&t=m&hl=en&gl=IN&mapclient=embed&cid=15286058874902622042",
+        text: "1/352 Vibhav Khand Gomti Nagar Lucknow 226010",
+        link: "https://www.google.com/maps/place/1%2F352,+Fims+College+Rd,+Vibhav+Khand,+Gomti+Nagar,+Lucknow,+Uttar+Pradesh+226010/@26.863242,81.0170016,18z/data=!4m6!3m5!1s0x399be2ed25daa0ab:0x24be2d86fc0f624!8m2!3d26.86312!4d81.017876!16s%2Fg%2F11g7kl3x64?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D",
       },
     },
   ];
@@ -177,10 +178,17 @@ export default function Contact() {
         {/* Contact Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-12 ">
           {contactData.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition hover:-translate-y-2"
-            >
+            <a
+  key={idx}
+  href={
+    Array.isArray(item.info)
+      ? item.info[0].link
+      : item.info.link
+  }
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition hover:-translate-y-2"
+>
               <div className="w-14 h-14 bg-[#008235] rounded-full flex items-center justify-center mx-auto mb-4">
                 <item.icon className="text-white" />
               </div>
@@ -231,7 +239,7 @@ export default function Contact() {
                   {item.subinfo}
                 </p>
               )}
-            </div>
+            </a>
           ))}
         </div>
 

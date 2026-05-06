@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import aboutImg from "../../assets/images/about/about-right-img.png";
+// import aboutImg from "../../assets/images/about/about-right-img.png";
+import aboutImg from "../../assets/New folder/WhatsApp Image 2026-05-04 at 18.23.43 (1).jpeg";
 import { Phone } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
