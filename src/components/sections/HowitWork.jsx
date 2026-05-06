@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import step1 from "../../assets/images/how-it-works/how-it-works-person1.png";
-import step2 from "../../assets/images/how-it-works/how-it-works-person2.png";
-import step3 from "../../assets/images/how-it-works/how-it-works-person3.png";
-import step4 from "../../assets/images/how-it-works/how-it-works-person4.png";
+// import step1 from "../../assets/images/how-it-works/how-it-works-person1.png";
+// import step2 from "../../assets/images/how-it-works/how-it-works-person2.png";
+// import step3 from "../../assets/images/how-it-works/how-it-works-person3.png";
+// import step4 from "../../assets/images/how-it-works/how-it-works-person4.png";
+import step1 from "../../assets/New folder/initial consultation.jpg";
+import step2 from "../../assets/New folder/custom system.jpg";
+import step3 from "../../assets/New folder/installation.jpg";
+import step4 from "../../assets/New folder/monitoring nd maintenance.jpg";
+
 
 const steps = [
   {

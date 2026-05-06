@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
-
-
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, CheckCircle, Send } from "lucide-react";
-
-import contactImg from "../../assets/images/about/about-page-img1.png";
+//import contactImg from "../../assets/images/about/about-page-img1.png";
+import contactImg from "../../assets/New folder/last image.jpg";
 import { postRequest } from "../../Helpers/index"; // apne path ke hisaab se
 import toast from "react-hot-toast";
 
@@ -156,8 +154,8 @@ const Contact = () => {
                 {
                   icon: <Phone className="w-5 h-5 text-[#008235]" />,
                   label: "Call Us",
-                  value: "+91 9876543210",
-                  link: "tel:+919876543210",
+                  value: "+91 90767 34825",
+                  link: "tel:+919076734825",
                 },
                 {
                   icon: <Mail className="w-5 h-5 text-[#008235]" />,
@@ -168,9 +166,8 @@ const Contact = () => {
                 {
                   icon: <MapPin className="w-5 h-5 text-[#008235]" />,
                   label: "Location",
-                  value:
-                    "D-222 UGF Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010",
-                  link: "https://www.google.com/maps?q=D-222+UGF+Vibhuti+Khand+Gomti+Nagar+Lucknow",
+                  value: "1/352 Vibhav Khand Gomti Nagar Lucknow 226010",
+                  link: "https://www.google.com/maps/place/1%2F352,+Fims+College+Rd,+Vibhav+Khand,+Gomti+Nagar,+Lucknow,+Uttar+Pradesh+226010/@26.863242,81.0170016,18z/data=!4m6!3m5!1s0x399be2ed25daa0ab:0x24be2d86fc0f624!8m2!3d26.86312!4d81.017876!16s%2Fg%2F11g7kl3x64?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D",
                 },
               ].map((item, i) => (
                 <div
