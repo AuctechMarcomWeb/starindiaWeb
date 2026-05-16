@@ -12,23 +12,24 @@ import {
 } from "lucide-react";
 
 // ── Images ──
-import singleService1 from "../../assets/images/single-service/single-service-img1.png";
-import singleService2 from "../../assets/images/single-service/single-service-img2.png";
-import singleService3 from "../../assets/images/single-service/single-service-img3.png";
-import offerImg1 from "../../assets/images/single-service/offer-img1.png";
-import offerImg2 from "../../assets/images/single-service/offer-img2.png";
+import singleService1 from "../../assets/offgrid/1.jpg";
+import singleService2 from "../../assets/offgrid/2.jpg";
+import singleService3 from "../../assets/offgrid/3.jpg";
+import offerImg1 from "../../assets/offgrid/9.jpg";
+import offerImg2 from "../../assets/offgrid/10.jpg";
 import offerImg3 from "../../assets/images/single-service/offer-img3.png";
 import offerIcon1 from "../../assets/images/single-service/offer-icon1.svg";
 import offerIcon2 from "../../assets/images/single-service/offer-icon2.svg";
 import offerIcon3 from "../../assets/images/single-service/offer-icon3.svg";
 import trueIcon from "../../assets/images/single-service/true-icon.svg";
 import solarBenefits from "../../assets/images/solar-benefits/solar-benefits-img.png";
-import offgrid from "../../assets/images/solar-benefits/offgrid.jpg"
+import offgrid from "../../assets/offgrid/4.jpg";
 import whyChooseImg from "../../assets/images/why-choose-us/why-choose-us-img.png";
 import serviceSolBg from "../../assets/images/service-solutions/service-solutions-bg.png";
-import serviceSolImg1 from "../../assets/images/service-solutions/service-solutions-img1.png";
-import serviceSolImg2 from "../../assets/images/service-solutions/service-solutions-img2.png";
-import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
+import serviceSolImg1 from "../../assets/offgrid/8.jpg";
+import serviceSolImg11 from "../../assets/offgrid/5.jpg";
+import serviceSolImg12 from "../../assets/offgrid/6.jpg";
+import serviceSolImg13 from "../../assets/offgrid/7.jpg";
 import MobileCTA from "../../components/sections/MobileCTA";
 
 // ── Static Data ──
@@ -90,19 +91,19 @@ const steps = [
     num: "01",
     title: "Load Analysis & Planning",
     desc: "We analyze your daily energy consumption to design a reliable off-grid system.",
-    img: singleService1,
+    img: serviceSolImg11,
   },
   {
     num: "02",
     title: "System Design & Battery Sizing",
     desc: "Custom solar + battery configuration to ensure uninterrupted power supply.",
-    img: singleService2,
+    img: serviceSolImg12,
   },
   {
     num: "03",
     title: "Installation & Setup",
     desc: "Complete installation including panels, inverter, and battery bank with testing.",
-    img: singleService3,
+    img: serviceSolImg13,
   },
 ];
 
@@ -244,7 +245,7 @@ const Offgrid = () => {
               <img
                 src={offgrid}
                 alt="Off-Grid solar benefits"
-                className="rounded-2xl w-full h-full object-cover min-h-[260px] sm:min-h-[320px]"
+                className="rounded-2xl w-full h-full object-cover min-h-[280px] sm:min-h-[320px]"
               />
             </FadeIn>
             {/* RIGHT CONTENT */}
