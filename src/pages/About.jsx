@@ -22,6 +22,11 @@ import {
 import PageBanner from "../components/sections/PageBanner";
 import FreeInstallation from "../components/sections/FreeInstallation";
 import MobileCTA from "../components/sections/MobileCTA";
+import img1 from "../assets/about/1.jpg"
+import img2 from "../assets/about/3.jpg";
+import img3 from "../assets/about/4.jpg";
+import img4 from "../assets/about/5.jpg";
+import img5 from "../assets/about/6.jpg";
 
 /* ─────────── useInView Hook ─────────── */
 const useInView = (threshold = 0.1) => {
@@ -81,10 +86,8 @@ const IMGS = {
   offgrid:
     "https://images.unsplash.com/photo-1592833159057-65c976071197?w=600&q=80",
   pump: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80",
-  chakki:
-    "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=600&q=80", // Industrial context
-  mission:
-    "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80",
+  
+ 
 };
 
 export default function ProfessionalAboutPage() {
@@ -231,7 +234,7 @@ export default function ProfessionalAboutPage() {
               {/* <div className="absolute top-0 right-0 w-[80%] h-[75%] rounded-[45px] overflow-hidden shadow-2xl z-20 border-8 border-white group"> */}
               <div className="relative w-full h-[200px] lg:h-[400px] rounded-[35px] overflow-hidden shadow-2xl z-30 border-8 border-white group mt-4">
                 <img
-                  src="https://plus.unsplash.com/premium_photo-1679607691186-4550451e13b7?q=80&w=415&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src={img1}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   alt="Star India Modern Solar Array"
                   loading="eager"
@@ -244,7 +247,7 @@ export default function ProfessionalAboutPage() {
               {/* <div className="absolute bottom-4 left-0 w-[65%] h-[55%] rounded-[35px] overflow-hidden shadow-2xl z-30 border-8 border-white group"> */}
               <div className="relative w-full h-[200px] lg:h-[400px] rounded-[35px] overflow-hidden shadow-2xl z-30 border-8 border-white group mt-4">
                 <img
-                  src="https://plus.unsplash.com/premium_photo-1682148205811-e8a8ce759f4b?q=80&w=653&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src={img2}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   alt="Expert Technical Installation"
                   loading="lazy"
@@ -411,7 +414,7 @@ export default function ProfessionalAboutPage() {
             <div className="relative ">
               {/* IMAGE */}
               <img
-                src={IMGS.mission}
+                src={img3}
                 className="rounded-3xl shadow-2xl relative z-10"
                 alt="Star India Energy Solutions mission - clean solar energy"
                 loading="lazy"
@@ -512,7 +515,7 @@ export default function ProfessionalAboutPage() {
           <FadeIn direction="right">
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800"
+                src={img4}
                 className="rounded-3xl shadow-2xl"
                 alt="Solar powered future - Star India Energy vision"
                 loading="lazy"
@@ -534,7 +537,7 @@ export default function ProfessionalAboutPage() {
           {/* LEFT IMAGE */}
           <FadeIn direction="left">
             <div className="relative">
-              <img src={IMGS.welcome} className="rounded-3xl shadow-2xl" alt="Tier-1 solar components quality assurance" loading="lazy" decoding="async" />
+              <img src={img5} className="rounded-3xl shadow-2xl" alt="Tier-1 solar components quality assurance" loading="lazy" decoding="async" />
 
               <div className="absolute -bottom-8 -right-8 bg-blue-600 text-white p-4 rounded-3xl shadow-xl hidden lg:block">
                 <div className="text-2xl font-black">Tier-1</div>
