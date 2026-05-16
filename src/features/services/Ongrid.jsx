@@ -9,9 +9,9 @@ import {
 } from "lucide-react";
 
 // ── Images ──
-import singleService1 from "../../assets/images/single-service/single-service-img1.png";
-import singleService2 from "../../assets/images/single-service/single-service-img2.png";
-import singleService3 from "../../assets/images/single-service/single-service-img3.png";
+import singleService1 from "../../assets/ogs/1.jpg";
+import singleService2 from "../../assets/ogs/2.jpg";
+import singleService3 from "../../assets/ogs/3.jpg";
 import offerImg1 from "../../assets/images/single-service/offer-img1.png";
 import offerImg2 from "../../assets/images/single-service/offer-img2.png";
 import offerImg3 from "../../assets/images/single-service/offer-img3.png";
@@ -27,11 +27,11 @@ import whyIcon1 from "../../assets/images/why-choose-us/why-choose-us-icon1.svg"
 import whyIcon2 from "../../assets/images/why-choose-us/why-choose-us-icon2.svg";
 import whyIcon3 from "../../assets/images/why-choose-us/why-choose-us-icon3.svg";
 import serviceSolBg from "../../assets/images/service-solutions/service-solutions-bg.png";
-import serviceSolImg1 from "../../assets/images/service-solutions/service-solutions-img1.png";
-import serviceSolImg2 from "../../assets/images/service-solutions/service-solutions-img2.png";
-import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
-import serviceSolImg4 from "../../assets/images/service-solutions/service-solutions-img4.png";
-import ongrid from "../../assets/images/solar-benefits/ongrid.jpg"
+import serviceSolImg1 from "../../assets/ogs/11.jpg";
+import serviceSolImg2 from "../../assets/ogs/8.jpg";
+import serviceSolImg3 from "../../assets/ogs/9.jpg";
+import serviceSolImg4 from "../../assets/ogs/10.jpg";
+import ongrid from "../../assets/ogs/4.jpg";
 import MobileCTA from "../../components/sections/MobileCTA";
 // ── Static Data ──
 const benefits = [
@@ -51,9 +51,24 @@ const challenges = [
 ];
 
 const steps = [
-  { num: "01", title: "Site Survey & Assessment", desc: "Our experts visit your site to evaluate roof area, orientation, shading, and load requirements.", img: singleService1 },
-  { num: "02", title: "System Design & Proposal", desc: "We design a custom On-Grid system sized to your energy needs with detailed ROI projections.", img: singleService2 },
-  { num: "03", title: "Installation & Commissioning", desc: "Certified engineers install panels, inverter, and grid connection — fully tested and commissioned.", img: singleService3 },
+  {
+    num: "01",
+    title: "Site Survey & Assessment",
+    desc: "Our experts visit your site to evaluate roof area, orientation, shading, and load requirements.",
+    img: serviceSolImg2,
+  },
+  {
+    num: "02",
+    title: "System Design & Proposal",
+    desc: "We design a custom On-Grid system sized to your energy needs with detailed ROI projections.",
+    img: serviceSolImg3,
+  },
+  {
+    num: "03",
+    title: "Installation & Commissioning",
+    desc: "Certified engineers install panels, inverter, and grid connection — fully tested and commissioned.",
+    img: serviceSolImg4,
+  },
 ];
 
 const faqs = [
@@ -213,7 +228,7 @@ const Ongrid = () => {
               <img
                 src={ongrid}
                 alt="Solar benefits"
-                className="rounded-2xl w-full h-full object-cover min-h-[260px] sm:min-h-[320px]"
+                className="rounded-2xl w-full h-full min-h-[260px] sm:min-h-[320px]"
               />
             </FadeIn>
 

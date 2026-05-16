@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo2.png";
 import { Link } from "react-router-dom";
 import {
   FaFacebook,
@@ -82,7 +82,7 @@ const Navbar = () => {
         <div className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 flex items-center justify-between py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2" aria-label="Star India Energy Solutions - Home">
-            <img src={logo} alt="Star India Energy Solutions Logo" className="w-20 h-14 object-contain" width="80" height="56" />
+            <img src={logo} alt="Star India Energy Solutions Logo" className=" object-cover" width="120" height="65" />
           </Link>
 
           {/* Mobile Button */}
