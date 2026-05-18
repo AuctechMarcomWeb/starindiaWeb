@@ -12,9 +12,9 @@ import {
 import singleService1 from "../../assets/ogs/1.jpg";
 import singleService2 from "../../assets/ogs/2.jpg";
 import singleService3 from "../../assets/ogs/3.jpg";
-import offerImg1 from "../../assets/images/single-service/offer-img1.png";
-import offerImg2 from "../../assets/images/single-service/offer-img2.png";
-import offerImg3 from "../../assets/images/single-service/offer-img3.png";
+import offerImg1 from "../../assets/ogs/11.jpg";
+import offerImg2 from "../../assets/ogs/8.jpg";
+import offerImg3 from "../../assets/ogs/9.jpg";
 import offerIcon1 from "../../assets/images/single-service/offer-icon1.svg";
 import offerIcon2 from "../../assets/images/single-service/offer-icon2.svg";
 import offerIcon3 from "../../assets/images/single-service/offer-icon3.svg";
@@ -27,11 +27,11 @@ import whyIcon1 from "../../assets/images/why-choose-us/why-choose-us-icon1.svg"
 import whyIcon2 from "../../assets/images/why-choose-us/why-choose-us-icon2.svg";
 import whyIcon3 from "../../assets/images/why-choose-us/why-choose-us-icon3.svg";
 import serviceSolBg from "../../assets/images/service-solutions/service-solutions-bg.png";
-import serviceSolImg1 from "../../assets/ogs/11.jpg";
-import serviceSolImg2 from "../../assets/ogs/8.jpg";
-import serviceSolImg3 from "../../assets/ogs/9.jpg";
-import serviceSolImg4 from "../../assets/ogs/10.jpg";
-import ongrid from "../../assets/ogs/4.jpg";
+import serviceSolImg1 from "../../assets/ogs/10.jpg";
+import serviceSolImg2 from "../../assets/ogs/site survey & assesment.jpg";
+import serviceSolImg3 from "../../assets/ogs/system design.jpg";
+import serviceSolImg4 from "../../assets/ogs/installation.jpg";
+import ongrid from "../../assets/ogs/on grid image.jpg";
 import MobileCTA from "../../components/sections/MobileCTA";
 // ── Static Data ──
 const benefits = [

@@ -22,12 +22,15 @@ import {
 } from "lucide-react";
 
 // ── Images ──
-import singleService1 from "../../assets/images/single-service/single-service-img1.png";
-import singleService2 from "../../assets/images/single-service/single-service-img2.png";
-import singleService3 from "../../assets/images/single-service/single-service-img3.png";
-import offerImg1 from "../../assets/images/single-service/offer-img1.png";
-import offerImg2 from "../../assets/images/single-service/offer-img2.png";
-import offerImg3 from "../../assets/images/single-service/offer-img3.png";
+import single1 from "../../assets/hybrid/1.jpg";
+import single2 from "../../assets/hybrid/2.jpg";
+import single3 from "../../assets/hybrid/3.jpg";
+import singleService1 from "../../assets/hybrid/5.jpg";
+import singleService2 from "../../assets/hybrid/6 (1).jpg";
+import singleService3 from "../../assets/hybrid/7.jpg";
+import offerImg1 from "../../assets/hybrid/8 (2).jpg";
+import offerImg2 from "../../assets/hybrid/9.jpg";
+import offerImg3 from "../../assets/hybrid/10.jpg";
 import offerIcon1 from "../../assets/images/single-service/offer-icon1.svg";
 import offerIcon2 from "../../assets/images/single-service/offer-icon2.svg";
 import offerIcon3 from "../../assets/images/single-service/offer-icon3.svg";
@@ -35,7 +38,7 @@ import trueIcon from "../../assets/images/single-service/true-icon.svg";
 import solarBenefits from "../../assets/images/solar-benefits/solar-benefits-img.png";
 import whyChooseImg from "../../assets/images/why-choose-us/why-choose-us-img.png";
 import serviceSolBg from "../../assets/images/service-solutions/service-solutions-bg.png";
-import serviceSolImg1 from "../../assets/images/service-solutions/service-solutions-img1.png";
+import serviceSolImg1 from "../../assets/hybrid/4.jpg";
 import serviceSolImg2 from "../../assets/images/service-solutions/service-solutions-img2.png";
 import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
 import MobileCTA from "../../components/sections/MobileCTA";
@@ -219,17 +222,17 @@ const Hybrid = () => {
           >
             <div className="grid grid-cols-2 gap-3 h-full">
               <img
-                src={singleService1}
+                src={single1}
                 alt="Off-Grid solar installation"
                 className="rounded-2xl w-full h-full object-cover col-span-2 min-h-[180px] sm:min-h-[220px] lg:min-h-[260px]"
               />
               <img
-                src={singleService2}
+                src={single2}
                 alt="Solar battery storage"
                 className="rounded-2xl w-full h-full object-cover min-h-[140px] sm:min-h-[160px]"
               />
               <img
-                src={singleService3}
+                src={single3}
                 alt="Off-grid inverter"
                 className="rounded-2xl w-full h-full object-cover min-h-[140px] sm:min-h-[160px]"
               />
