@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 
 // ── Images ──
-import single1 from "../../assets/hybrid/1.jpg";
+import single1 from "../../assets/hybrid/HYBRID SOLAR POWER.jpg.jpeg";
 import single2 from "../../assets/hybrid/2.jpg";
 import single3 from "../../assets/hybrid/3.jpg";
 import singleService1 from "../../assets/hybrid/5.jpg";
