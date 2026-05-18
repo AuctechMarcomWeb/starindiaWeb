@@ -261,10 +261,10 @@ const Contact = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-semibold text-gray-600 mb-2">
-                        Email Address{" "}
-                        <span className="text-gray-400 font-normal">
+                        Email Address <span className="text-red-500">*</span>
+                        {/* <span className="text-gray-400 font-normal">
                           (Optional)
-                        </span>
+                        </span> */}
                       </label>
                       <input
                         className={`jj-input ${errors.email ? "error" : ""}`}

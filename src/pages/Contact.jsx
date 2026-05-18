@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import PageBanner from "../components/sections/PageBanner";
-// import contactImg from "../assets/images/about/about-page-img1.png"; 
+// import contactImg from "../assets/images/about/about-page-img1.png";
 import contactImg from "../assets/New folder/last image.jpg";
 import { FaWhatsapp } from "react-icons/fa";
 import { postRequest } from "../Helpers/index";
@@ -179,16 +179,14 @@ export default function Contact() {
         <div className="grid md:grid-cols-3 gap-8 mb-12 ">
           {contactData.map((item, idx) => (
             <a
-  key={idx}
-  href={
-    Array.isArray(item.info)
-      ? item.info[0].link
-      : item.info.link
-  }
-  target="_blank"
-  rel="noopener noreferrer"
-  className="block bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition hover:-translate-y-2"
->
+              key={idx}
+              href={
+                Array.isArray(item.info) ? item.info[0].link : item.info.link
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition hover:-translate-y-2"
+            >
               <div className="w-14 h-14 bg-[#008235] rounded-full flex items-center justify-center mx-auto mb-4">
                 <item.icon className="text-white" />
               </div>
@@ -266,12 +264,14 @@ export default function Contact() {
           {/* RIGHT FORM */}
           <div className="bg-white rounded-3xl shadow-xl p-8">
             {submitted ? (
-              <div className="text-center py-12">
-                <Send className="w-10 h-10 text-green-600 mx-auto mb-3" />
-                <h3 className="text-xl font-bold text-green-600">
+              <div className="text-center py-12 flex flex-col items-center justify-center">
+                <Send className="w-10 h-10 text-green-600 mb-4" />
+
+                <h3 className="text-2xl font-bold text-green-600 mb-3">
                   Message Sent!
                 </h3>
-                <p className="text-gray-500 text-sm max-w-xs">
+
+                <p className="text-gray-500 text-base max-w-md leading-relaxed">
                   Thank you, <strong>{userName}</strong>! Our team will contact
                   you shortly.
                 </p>
@@ -313,8 +313,8 @@ focus:border-[#008235] transition"
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-gray-700 mb-1 block">
-                      Email Address{" "}
-                      <span className="text-gray-400">(Optional)</span>
+                      Email Address <span className="text-red-500">*</span>
+                      {/* <span className="text-gray-400">(Optional)</span> */}
                     </label>
                     <input
                       type="email"
